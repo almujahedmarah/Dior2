@@ -46,7 +46,7 @@ export default function User() {
 // =============================================================================================================
     return (
         <div>
-            <Parallax pages={2} style={{ top: '0', left: '0', backgroundColor: "rgba(223, 186, 186, 0.877)"}}>
+            <Parallax pages={2} style={{ top: '15', left: '0', backgroundColor: "rgba(223, 186, 186, 0.877)"}}>
 
 <ParallaxLayer
   offset={0}
