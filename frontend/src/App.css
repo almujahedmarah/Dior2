@@ -1,6 +1,8 @@
 *{
   margin: 0;
   padding: 0;
+  
+  font-family: 'Playfair Display', serif;
 }
 .main{
   text-align: center;
@@ -68,7 +70,7 @@ margin-top: 50px;
   width: 120px;
 }
 .nav{
-  background-color: rgba(151, 80, 80, 0.493);
+  background-color: rgba(7, 7, 7, 0.733);
   height: 60px;
 
 }
@@ -81,4 +83,134 @@ ul{
 .link{
   color: rgb(241, 235, 226);
   padding-top: 15px;
+}
+.mm{
+  /* background: rgba(36, 30, 31, 0.705);
+  background: linear-gradient(0deg, rgba(79, 82, 119, 0.712) 0%, rgba(225, 220, 231, 0.76) 100%); */
+  /* border-radius: 20px;
+  width: 500px;
+  gap: 60px; 
+  height: 500px; 
+  margin-right: 90px; */
+  display: flex;
+}
+
+.joys{
+  /* width: 180px;
+  height: 200px;
+  margin-bottom: 500px; */
+}
+.joy1000{
+   width: 280px;
+  margin-left: 200px;
+}
+.backgroundjay{
+  background: linear-gradient(#042042, #161720);
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.backgroundjad{
+  background: linear-gradient(#743b0d, #3a1b02);
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.jadorc{
+  /* background: rgba(36, 30, 31, 0.705);
+  background: linear-gradient(0deg, rgba(79, 82, 119, 0.712) 0%, rgba(225, 220, 231, 0.76) 100%); */
+  border-radius: 20px;
+  width: 500px;
+  gap: 60px; 
+  height: 500px; 
+  margin-right: 90px;
+  /* margin-bottom: 300px;
+  padding-bottom: 120px; */
+}
+.jadimg{
+  height: 300px;
+  /* margin-top: 140px;  */
+  /* padding-top: 100px; */
+}
+.jadorc{
+  display: flex;
+  /* margin-right: 70px;
+  margin-top: 40px;
+  padding-top: 400px; */
+}
+.jbutton{
+  background-color: rgba(24, 22, 22, 0.877);
+  width: 90px;
+  height: 30px;
+  border-radius: 10px;
+  color: rgba(245, 241, 241, 0.884);
+  font-size: 16px;
+  border:none;
+  /* margin-left: 200px; */
+  margin-top: 30px;
+}
+.jpric{
+  color: rgb(233, 226, 217);
+  font-size: 20px;
+  margin-top: 20px;
+}
+.jname{
+  color: rgb(233, 226, 217);
+  margin-top: 80px;
+}
+.jadorimg{
+  width: 240px;
+  margin-left: 200px;
+  /* margin-bottom: 10px; */
+}
+.yyyy{
+  margin-top: 60px;
+}
+.jadortitl{
+  color: rgb(253, 241, 226);
+  font-size: xxx-large;
+  align-items: center;
+}
+.jadop{
+  margin-left: 90px;
+  padding-bottom: 70px;
+}
+.joytitle{
+  color: rgb(236, 235, 241);
+  font-size: xxx-large;
+  align-items: center;
+}
+
+.pbutton{
+  background-color: rgba(24, 22, 22, 0.877);
+  width: 90px;
+  height: 40px;
+  border-radius: 10px;
+  color: rgba(245, 241, 241, 0.884);
+  font-size: 16px;
+  border:none;
+  /* margin-left: 200px;
+  margin-bottom: 60px; */
+  margin-top: 50px;
+}
+.joyflex{
+  padding-top: 160px;
+  padding-right: 90px;
+}
+.pname{
+  color: antiquewhite;
+}
+.ppric{
+  color: antiquewhite;
+  padding-top: 20px;
 }

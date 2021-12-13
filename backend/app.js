@@ -13,18 +13,11 @@ async function main() {
 
 // =================   USER NEED ===============================================================
 
-// this for the collection ==>  http://localhost:3001/Admin/collection/:id
+// Miss Dior API => http://localhost:3001/Dior/collection/61b1ddbbdb2645c13798f3ce
 
-// Miss Dior API => http://localhost:3001/Admin/collection/61b1ddbbdb2645c13798f3ce
+// JOY API => http://localhost:3001/Dior/collection/61b1dc8adb2645c13798f3c4
 
-// JOY API => http://localhost:3001/Admin/collection/61b1dc8adb2645c13798f3c4
-
-// J'ADORE API => http://localhost:3001/Admin/collection/61b1df23db2645c13798f3ee
-
-// login user => http://localhost:3001/user/login
-
-// Singup user => http://localhost:3001/user/signup
-
+// J'ADORE API => http://localhost:3001/Dior/collection/61b1df23db2645c13798f3ee
 
 //================ ADMIN NEED ==================================================================
 
@@ -37,6 +30,18 @@ async function main() {
 // delet and edit  Parfume  http://localhost:3001/Admin/Parfume/:CId/:PId
 
 // Add Parfume  http://localhost:3001/Admin/Parfume/:CId     NOTE : CId is collection ID
+
+// this for the collection ==>  http://localhost:3001/Admin/collection/:id
+
+// Miss Dior API => http://localhost:3001/Admin/collection/61b1ddbbdb2645c13798f3ce
+
+// JOY API => http://localhost:3001/Admin/collection/61b1dc8adb2645c13798f3c4
+
+// J'ADORE API => http://localhost:3001/Admin/collection/61b1df23db2645c13798f3ee
+
+// login user => http://localhost:3001/user/login
+
+// Singup user => http://localhost:3001/user/signup
 
 
 app.use(cors({origin: 'http://localhost:3000'}))
