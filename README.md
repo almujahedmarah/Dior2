@@ -1,12 +1,16 @@
 # Dior2
 
 
+
 # Quick Compo
 ​
 <img src="https://i.pinimg.com/474x/b2/f3/d4/b2f3d44d05896e32c6ee834c7821f80a.jpg" alt="minilogo" style="zoom:75%;" />
 
 ## Description
 
+###Wireframe:
+Trello:
+https://trello.com/b/0Czc9ake/dior
 
 User profile:
 ​
@@ -15,9 +19,11 @@ User profile:
 - have a cart
 - pay the prodact
 
-# Client / Frontend
-​
-## React Router Routes (React App)
+
+​Admin
+
+- can add , delete , update products.
+
 
 ## Components
 ​
@@ -36,7 +42,7 @@ User profile:
   - auth.signup(user)
   - auth.logout()
   - auth.me()
-  - auth.getUser() // synchronous
+  - auth.getUser() 
 
   - Exit Point Service
   - exitPoint.list()
@@ -47,9 +53,6 @@ User profile:
   - User Service
   - user.detail(id)
 
-  # Server / Backend
-
-  # Server / Backend
 ​
 ## Models
 ​
@@ -57,30 +60,89 @@ User model
 ​
 ```
 {
-  user: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  favorites: [{type: Schema.Types.ObjectId,ref:'Exit'}]
-  userAgreement: {type: boolean, required: true, default: false}
+name: {
+      type: String,
+      required: [true, 'user name should be provided']
+    },
+    email: {
+      type: String,
+      required: [true, 'user email should be provided'],
+      unique: true,
+      lowercase: true,
+      validate: [isEmail, 'is invalid']
+    },
+    password: {
+      type: String,
+      required: [true, 'user password should be provided'],
+      minlength: [6, 'pass more than 6 digits']
+      },
+      cart:{
+        type: Schema.Types.ObjectId,
+        ref:'Cart'
+    },
+  });
 }
 ```
-Exit model
+admin model
 ​
 ```
  {
-   name: {type: String, required: true},
-   img: {type: String},
-   aproachLat: {type: Number, required: true}
-   aproachLong: {type: Number, required: true}
-   aproachDescription: {type: String}
-   exitLat: {type: Number, required: true}
-   exitLong: {type: Number, required: true}
-   exitDescription: {type: String}
-   landiZoneLat: {type: Number, required: true}
-   landingZoneLong: {type: Number, required: true}
-   landingZoneDescription: {type: String}
-   creator: {type: Schema.Types.ObjectId,ref:'User'}
-   altitud: {type: number}
-   
+      name: {
+      type: String,
+      required: [true, 'Admin name should be provided']
+    },
+    email: {
+      type: String,
+      required: [true, 'Admin email should be provided'],
+      unique: true,
+      lowercase: true,
+      validate: [isEmail, 'is invalid']
+    },
+    password: {
+      type: String,
+      required: [true, 'Admin password should be provided'],
+      minlength: [6, 'pass more than 6 digits']
+      },
+
  }
+ ```
+ cart model
+ ```
+    product:[{
+        type: Schema.Types.ObjectId,
+        ref:'perfume'
+    }],
+    qty:{
+        type:Number,
+        default:1,
+    },
+  });
+ ```
+ collection model
+ ```
+  name: {
+      type: String,
+      required: [true, 'Author name should be provided']
+    },
+    Parfume: [ParfumeSchema],
+    
+  });
+ ```
+Parfume model
+
+ ```
+    name:{
+      type: String,
+      required: [true, 'perfume name should be provided']
+    },
+    image: {
+      type: String,
+      required: [true, 'perfume image should be provided']
+    },
+    price: Number,
+    description: {
+      type: String,
+      required: [true, 'perfume description should be provided']
+    },
+  });
  ```

@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const Admin = require('./router/Admin')
 const user =require('./router/user')
-
+const Dior = require('./router/show')
 
 main().catch(err => console.log(err));
 async function main() {
@@ -51,7 +51,7 @@ app.get('/', (req,res)=>{
 
 app.use("/Admin", Admin)
 app.use('/user', user)
-
+app.use('/Dior', Dior)
 
 app.listen(3001, () =>{
     console.log("hi  i worked b");

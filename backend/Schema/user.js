@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { isEmail } = require("validator");
+var Schema = mongoose.Schema
 
 module.exports =  new mongoose.Schema({
     name: {
@@ -18,5 +19,8 @@ module.exports =  new mongoose.Schema({
       required: [true, 'user password should be provided'],
       minlength: [6, 'pass more than 6 digits']
       },
-
+      cart:{
+        type: Schema.Types.ObjectId,
+        ref:'Cart'
+    },
   });
