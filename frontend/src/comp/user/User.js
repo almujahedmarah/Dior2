@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
@@ -11,7 +11,7 @@ export default function User() {
     const [name,setName] =useState("")
     const [user, setUser] = useState([])
 //============================LOGIN-=====================================================================================
-      //  const navigate= useNavigate()
+       const navigate= useNavigate()
       const [userg ,setUserg] = useState('')
       const [emailg ,setEmailg] = useState([])
       const [passg ,setPassg] = useState([])
@@ -25,8 +25,8 @@ export default function User() {
           localStorage.setItem("id", response.data.id)
 
         setUserg(response.data)
-        //   navigate("/")
-        //   alert("Hello!! welcom");
+          navigate("/Joy")
+          alert("Hello!! welcom");
         })
     }
 //===========SINGUP==============================================================================================

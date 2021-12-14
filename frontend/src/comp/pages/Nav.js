@@ -6,6 +6,7 @@ import MissD from "./MissD"
 import Joy from "./Joy"
 import Cart from './Cart'
 import User from '../user/User'
+import Login from '../Admin/Login'
 
 // import './App.css'
 export default function Nav() {
@@ -18,6 +19,7 @@ export default function Nav() {
                 < Link  className="link"  to="/Joy">Joy</Link>
                 < Link  className="link"  to="/Cart">Cart</Link>
                 < Link  className="link"  to="/User">User</Link>
+                < Link  className="link"  to="/Login">Admin</Link>
             </ul>
       
     

@@ -214,3 +214,20 @@ ul{
   color: antiquewhite;
   padding-top: 20px;
 }
+.adminhome{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-gap: 150px;
+}
+.Ah{
+  height: 250px;
+  width: 190px;
+}
+.Aht{
+text-align: center;
+color: rgba(252, 250, 247, 0.863);
+margin-bottom: 20px;
+}
+/* .Ajad{
+  background-color: rgb(85, 37, 2);
+} */

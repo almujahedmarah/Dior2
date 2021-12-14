@@ -7,7 +7,10 @@ const jwt = require('jsonwebtoken');
 const express = require("express");
 const CartSchema = require("../Schema/Cart")
 const Cart = mongoose.model("Cart",CartSchema)
-
+const ParfumeSchema = require("../Schema/perfume/perfume")
+const Perfume = mongoose.model("Perfume",ParfumeSchema)
+const collectionSchema = require("../Schema/collection/collection");
+const collection = mongoose.model('collection', collectionSchema);
 
 
 router.get("/", async (req, res) => {
@@ -22,18 +25,19 @@ router.get("/", async (req, res) => {
 router.post("/cart/:Uid", async (req, res)=>{
      await  User.findById(req.params.Uid)
      .then((user)=>{
-         console.log(user.Cart)
-         if(user.Cart == undefined){
-        Cart.create({product:req.body.product,qty:req.body.qty})
+         console.log(user.cart)
+         if(user.cart == undefined){
+        Cart.create({product:req.body.product})
         .then(async(cart)=>{
-         await User.findByIdAndUpdate(req.params.Uid, {Cart:cart})
-          await user.save()
-          res.send(user)
+         await User.findByIdAndUpdate(req.params.Uid, {cart:cart}).then(async(newUser)=>{
+             await user.save()
+             res.send(newUser)
+         })
         })
         }else{
-            Cart.findByIdAndUpdate(user.Cart,{$push:{product:req.body.product},qty:req.body.qty})
+            Cart.findByIdAndUpdate(user.cart,{$push:{product:req.body.product}})
             .then(async(cart)=>{
-             await User.findByIdAndUpdate(req.params.Uid, {Cart:cart})
+             await User.findByIdAndUpdate(req.params.Uid, {cart:cart})
               await user.save()
               res.send(user)
             })
@@ -43,8 +47,25 @@ router.post("/cart/:Uid", async (req, res)=>{
 
 router.get("/cart/:Uid", async (req, res)=>{
     await  User.findById(req.params.Uid).populate('cart')
-    .then((user)=>{
-        console.log(user.cart)
+    .then(async(user)=>{
+      
+         console.log(user.cart)
+        // await Cart.findById(user.cart._id).populate('product').then((pro)=>{
+        //     console.log(pro)
+        // }) 
+          collection.find({}).then((allCol)=>{
+            allCol.forEach((coll)=>{
+                 coll.Parfume.forEach((pro)=>{
+                      console.log("per "+pro._id)
+                     user.cart.product.forEach((cartPro)=>{
+                         console.log("car "+cartPro._id)
+                        if(pro._id == cartPro._id){
+                            console.log(pro)
+                        }
+                     })
+                 })
+            })
+        })
         if(user.cart == undefined){
        
          res.send("u dont have a cart")
@@ -55,6 +76,7 @@ router.get("/cart/:Uid", async (req, res)=>{
        }
     })
 })
+
 
 
 //==========login======================================================================
