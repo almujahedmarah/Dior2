@@ -56,9 +56,9 @@ router.get("/cart/:Uid", async (req, res)=>{
           collection.find({}).then((allCol)=>{
             allCol.forEach((coll)=>{
                  coll.Parfume.forEach((pro)=>{
-                      console.log("per "+pro._id)
+                    //   console.log("per "+pro._id)
                      user.cart.product.forEach((cartPro)=>{
-                         console.log("car "+cartPro._id)
+                        //  console.log("car "+cartPro._id)
                         if(pro._id == cartPro._id){
                             console.log(pro)
                         }
@@ -66,6 +66,8 @@ router.get("/cart/:Uid", async (req, res)=>{
                  })
             })
         })
+
+
         if(user.cart == undefined){
        
          res.send("u dont have a cart")

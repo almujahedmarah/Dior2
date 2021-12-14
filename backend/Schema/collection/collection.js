@@ -7,5 +7,7 @@ module.exports =  new mongoose.Schema({
       required: [true, 'Author name should be provided']
     },
     Parfume: [ParfumeSchema],
-    
+    img: {
+      type:String
+    }
   });

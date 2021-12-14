@@ -75,10 +75,10 @@ margin-top: 50px;
 
 }
 ul{
-  margin-left: 180px;
+  margin-left: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  /* grid-gap: 10px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
 }
 .link{
   color: rgb(241, 235, 226);

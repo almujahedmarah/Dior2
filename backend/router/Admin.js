@@ -52,7 +52,8 @@ const perfume = mongoose.model('perfume', perfumeSchema);
 
 router.get("/Parfume/:CId/:PId", async (req, res) => {
 
-  res.send( await collection.findById(req.params.CId).select({  Parfume: {$elemMatch: {_id: req.params.PId}}}));
+  const allProduct = await collection.findById(req.params.CId).select({  Parfume: {$elemMatch: {_id: req.params.PId}}})
+  res.send({allProduct:allProduct, collectionId:req.params.CId} );
 
 })
 
