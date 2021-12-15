@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 
 export default function Addmiss() {
     const [addmiss, setAddmiss] = useState([])
     const navigate= useNavigate()
-
+    const {colId} = useParams()
 
     const AddDior =(e)=>{
      e.preventDefault();
@@ -16,13 +16,13 @@ export default function Addmiss() {
      let dec = e.target[3].value;
      console.log(e);
 
-     axios.post("http://localhost:3001/Admin/Parfume/61b1ddbbdb2645c13798f3ce",{name:name ,image:img ,price:price ,description:dec})
+     axios.post(`http://localhost:3001/Admin/Parfume/${colId}`,{name:name ,image:img ,price:price ,description:dec})
      .then((res)=>{
          console.log(res);
         setAddmiss([...addmiss,res.data.Parfume]);
      })
 
-     navigate("/AMissD")
+     navigate(`/${colId}`)
      
     alert("Add Sucsesfull");
      

@@ -46,26 +46,11 @@ router.post("/cart/:Uid", async (req, res)=>{
 })
 
 router.get("/cart/:Uid", async (req, res)=>{
+   let arr = []
+  
     await  User.findById(req.params.Uid).populate('cart')
     .then(async(user)=>{
       
-         console.log(user.cart)
-        // await Cart.findById(user.cart._id).populate('product').then((pro)=>{
-        //     console.log(pro)
-        // }) 
-          collection.find({}).then((allCol)=>{
-            allCol.forEach((coll)=>{
-                 coll.Parfume.forEach((pro)=>{
-                    //   console.log("per "+pro._id)
-                     user.cart.product.forEach((cartPro)=>{
-                        //  console.log("car "+cartPro._id)
-                        if(pro._id == cartPro._id){
-                            console.log(pro)
-                        }
-                     })
-                 })
-            })
-        })
 
 
         if(user.cart == undefined){
@@ -73,8 +58,27 @@ router.get("/cart/:Uid", async (req, res)=>{
          res.send("u dont have a cart")
        
        }else{
-           
-             res.send(user.cart)
+       
+        collection.find({}).populate("Parfume").populate("Parfume.name").exec(function(err,product){
+            product.forEach((Pro)=>{
+                
+                user.cart.product.forEach(async (cartPro)=>{
+                
+                  const products =  Pro.Parfume.find(o => {return o._id.toString() == cartPro._id.toString()})
+                //    console.log(products)
+                   if(products !== undefined){
+                    // console.log(products)
+                     arr.push(products)
+                    //  console.log(arr) 
+                   }
+                    
+                 })
+                  
+             })
+             res.send(arr)
+        })
+        
+
        }
     })
 })

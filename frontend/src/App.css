@@ -70,7 +70,7 @@ margin-top: 50px;
   width: 120px;
 }
 .nav{
-  background-color: rgba(7, 7, 7, 0.733);
+  background-color: rgb(10, 5, 5);
   height: 60px;
 
 }
@@ -232,4 +232,16 @@ background: linear-gradient(90deg, rgba(249,203,219,1) 0%, rgba(222,126,126,1) 5
 .missdimg{
  width: 360px;
  margin-left: 99px;
+}
+.error{
+  background-image: url("https://i.ibb.co/vLsk8vT/jadorem.png");
+  background-size: cover;
+  height: 597px;
+}
+.eror{
+ text-align: center;
+ align-content: center;
+ font-size: xxx-large;
+ padding-top: 150px;
+ color: rgba(54, 42, 42, 0.897);
 }

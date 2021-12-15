@@ -21,7 +21,7 @@ const alignCenter = { display: 'flex', alignItems: 'center' }
     return (
         <div>
  <div className="backgroundjad" />
-<Parallax pages={3.7} top={10}>
+<Parallax  pages={3.7} top={10}>
 <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' , backgroundImage:`url("https://i.ibb.co/M56JwHD/Magical-Music-Venues.jpg")` , backgroundSize:"cover", height:"550px" }}>
 <div className='jadortitl'>
 <h1>J'ADORE</h1>

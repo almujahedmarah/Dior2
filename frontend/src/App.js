@@ -12,6 +12,7 @@ import AMissD from './comp/Admin/CRUD/AMissD'
 import Addmiss from './comp/Admin/CRUD/Addmiss'
 import Editmiss from './comp/Admin/CRUD/Editmiss'
 import Home from './comp/pages/Home'
+import Error from './comp/pages/Error';
 import { BrowserRouter as Router,Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
@@ -28,9 +29,10 @@ export default function App() {
          <Route path="/User" element={<User />}></Route>
          <Route path="/Login" element={<Login />}></Route>
          <Route path="/AHome" element={<AHome />}></Route>
-         <Route path="/:id" element={<AMissD />}></Route>
-         <Route path="/Addmiss" element={<Addmiss />}></Route>
-         <Route path="/Editmiss/:id/:colId" element={<Editmiss />}></Route>
+         <Route path="/:colId" element={<AMissD />}></Route>
+         <Route path="/Addmiss/:colId" element={<Addmiss />}></Route>
+         <Route path="/Editmiss/:colId /:id" element={<Editmiss />}></Route>
+         <Route path="*" element={<Error/>}></Route>
         </Routes>
     
     </div>

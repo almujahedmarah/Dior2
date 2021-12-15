@@ -10,12 +10,19 @@ const [price, setPrice] =useState();
 const [dec, setDec] = useState()
 const navigate= useNavigate()
 
-const {id,colId} = useParams()
+const {colId,id} = useParams()
 
+useEffect(() => {
+    axios.get(`http://localhost:3001/Admin/Parfume/${colId}/${id}`).then((res) => {
+      console.log(res.data.allProduct.Parfume);
+      setMiss(res.data.allProduct.Parfume[0]);
+    });
+  }, [])
 
 const putData =(e)=>{
  e.preventDefault();
- axios.patch(` http://localhost:3001/Admin/Parfume/${colId}/${id}`,{
+ console.log("hi")
+ axios.patch(`http://localhost:3001/Admin/Parfume/${colId}/${id}`,{
      name:name,
      image:img,
      price:price,
@@ -23,18 +30,28 @@ const putData =(e)=>{
  })
  .then((res)=>{
     console.log(res);
-    setMiss(res.data.Parfume);
-  
  })
- navigate("/AMissD")
+  navigate(`/${colId}`)
  alert("Updated successfully");
 }
+
+const updatePage = () => {
+    axios
+      .get(`http://localhost:3001/Admin/collection/${colId}`)
+      .then((res) => {
+        console.log(res.data.Parfume);
+        setMiss(res.data.Parfume);
+      })
+      .catch((error) => {
+        console.log(error.res);
+      });
+  };
 
     return (
         <div>
             <form onSubmit={(e) => {putData(e)}}>
                 <label>Name</label>
-                <input type="text" onChange={(e) => {setName(e.target.value)}}/>
+                <input type="text"  onChange={(e) => {setName(e.target.value)}}/>
                 <label>Image</label>
                 <input type="text" onChange={(e) => {setImg(e.target.value)}} />
                 <label>price</label>

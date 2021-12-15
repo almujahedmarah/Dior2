@@ -12,48 +12,74 @@
 Trello:
 https://trello.com/b/0Czc9ake/dior
 
+## User Stories
+
+- **Signup:** As a user I can sign up in the platform so that I can start playing into competition
+- **Login:** As a user I can login to the platform so that I can log my exit points
+- **Logout:** As a user I can logout from the platform so no one else can use it
+- **Cart:** As a user I can have a cart to pay my order
+
+## Backlog
+
 User profile:
-​
+
 - see my profile
-- see exit point
-- have a cart
-- pay the prodact
 
 
-​Admin
 
-- can add , delete , update products.
+# Client / Frontend
 
+## React Router Routes (React App)
+
+| Path          | Component      | Permissions                 | Behavior                                                     |
+| ------------- | -------------- | --------------------------- | ------------------------------------------------------------ |
+| `/`           | SplashPage     | public `<Route>`            | Home page                                                    |
+| `/signup`     | SignupPage     | anon only `<AnonRoute>`     | Signup form, link to login, navigate to homepage after signup |
+| `/login`      | LoginPage      | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login |
+| `/admin`      | adminPage      | admin only `<PrivateRoute>` | to login navigate to admin home page                         |
+| `/addprodact` | addprodactPage | admin only `<PrivateRoute>` | to add prodact                                               |
+| `/AHome`      | admin homePage | admin only `<PrivateRoute>` | home page for the admin                                      |
+| `/Jadore`     | jador          | user only `<PrivateRoute>`  | to see jadore collaction                                     |
+| `/MissD`      | miss dior      | user only `<PrivateRoute>`  | to see miss dior collaction                                  |
+| `/Joy`        | joy            | user only `<PrivateRoute>`  | to see joy collaction                                        |
+| `*`           | error          | user only `<PrivateRoute>`  | send the user to error page                                  |
+| `/Cart`       | cart           | user only `<PrivateRoute>`  | to see the pall                                              |
+|               |                |                             |                                                              |
+|               |                |                             |                                                              |
+|               |                |                             |                                                              |
 
 ## Components
-​
-- LoginPage
-- SignupPage
+
+- Login Page
+- user Page
+- admin Page
+- Signup Page
+- Jadore Page
+-  MissD Page
+- Joy Page
+- Cart Page
 - Navbar
 - home
-- cart
-- admin page
-- jadore
-- joy
-- miss dior
+- add prodact page
+- edit prodact page
+
+## Services
 
 - Auth Service
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
   - auth.me()
-  - auth.getUser() 
-
-  - Exit Point Service
-  - exitPoint.list()
-  - exitPoint.detail(id)
-  - exitPoint.add(id)
-  - exitPoint.delete(id)
-
-  - User Service
+  - auth.getUser() // synchronous
+- Admin Service
+  - Admin.list()
+  - Admin.detail(id)
+  - Admin.add(id)
+  - Admin.delete(id)
+- User Service
   - user.detail(id)
 
-​
+
 ## Models
 ​
 User model
