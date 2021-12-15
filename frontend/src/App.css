@@ -85,21 +85,11 @@ ul{
   padding-top: 15px;
 }
 .mm{
-  /* background: rgba(36, 30, 31, 0.705);
-  background: linear-gradient(0deg, rgba(79, 82, 119, 0.712) 0%, rgba(225, 220, 231, 0.76) 100%); */
-  /* border-radius: 20px;
-  width: 500px;
-  gap: 60px; 
-  height: 500px; 
-  margin-right: 90px; */
+ 
   display: flex;
 }
 
-.joys{
-  /* width: 180px;
-  height: 200px;
-  margin-bottom: 500px; */
-}
+
 .joy1000{
    width: 280px;
   margin-left: 200px;
@@ -127,26 +117,22 @@ ul{
   height: 100vh;
 }
 .jadorc{
-  /* background: rgba(36, 30, 31, 0.705);
-  background: linear-gradient(0deg, rgba(79, 82, 119, 0.712) 0%, rgba(225, 220, 231, 0.76) 100%); */
+  
   border-radius: 20px;
   width: 500px;
   gap: 60px; 
   height: 500px; 
   margin-right: 90px;
-  /* margin-bottom: 300px;
-  padding-bottom: 120px; */
+
 }
 .jadimg{
   height: 300px;
-  /* margin-top: 140px;  */
-  /* padding-top: 100px; */
+
 }
 .jadorc{
   display: flex;
-  /* margin-right: 70px;
-  margin-top: 40px;
-  padding-top: 400px; */
+
+
 }
 .jbutton{
   background-color: rgba(24, 22, 22, 0.877);
@@ -156,7 +142,6 @@ ul{
   color: rgba(245, 241, 241, 0.884);
   font-size: 16px;
   border:none;
-  /* margin-left: 200px; */
   margin-top: 30px;
 }
 .jpric{
@@ -171,10 +156,10 @@ ul{
 .jadorimg{
   width: 240px;
   margin-left: 200px;
-  /* margin-bottom: 10px; */
 }
 .yyyy{
   margin-top: 60px;
+  padding-top: 50px;
 }
 .jadortitl{
   color: rgb(253, 241, 226);
@@ -199,8 +184,7 @@ ul{
   color: rgba(245, 241, 241, 0.884);
   font-size: 16px;
   border:none;
-  /* margin-left: 200px;
-  margin-bottom: 60px; */
+ 
   margin-top: 50px;
 }
 .joyflex{
@@ -228,6 +212,24 @@ text-align: center;
 color: rgba(252, 250, 247, 0.863);
 margin-bottom: 20px;
 }
-/* .Ajad{
-  background-color: rgb(85, 37, 2);
-} */
+.missdtitl{
+  color: rgb(48, 37, 36);
+  font-size: xxx-large;
+  align-items: center;
+  text-shadow: #0d0d0f;
+}
+.backgroundmissd{
+  background: rgb(249,203,219);
+background: linear-gradient(90deg, rgba(249,203,219,1) 0%, rgba(222,126,126,1) 50%, rgb(184, 140, 155) 100%);
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.missdimg{
+ width: 360px;
+ margin-left: 99px;
+}

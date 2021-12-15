@@ -20,23 +20,23 @@ const alignCenter = { display: 'flex', alignItems: 'center' }
 
     return (
         <div>
-   <div className="backgroundjad" />
-<Parallax pages={3} top={10}>
-<ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' , backgroundImage:`url("https://i.ibb.co/M56JwHD/Magical-Music-Venues.jpg")` , backgroundSize:"cover", height:"550px"}}>
+ <div className="backgroundjad" />
+<Parallax pages={3.7} top={10}>
+<ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' , backgroundImage:`url("https://i.ibb.co/M56JwHD/Magical-Music-Venues.jpg")` , backgroundSize:"cover", height:"550px" }}>
 <div className='jadortitl'>
 <h1>J'ADORE</h1>
 <p className='jadop'>Life is gold</p>
 </div>
 </ParallaxLayer>
 
-<ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start'}}>
+<ParallaxLayer sticky={{ start: 1, end:4}} style={{ ...alignCenter, justifyContent: 'flex-start'}}>
   <div >
     <img className="jadorimg" src="https://i.ibb.co/N30YQMC/IMG-8550.jpg"/>
   </div>
 </ParallaxLayer>
 
 
-<ParallaxLayer offset={1.5} speed={0.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+<ParallaxLayer offset={2} speed={0.5}  style={{ ...alignCenter, justifyContent: 'flex-end' }}>
         <div className='yyyy' >
         {jador.map((item)=>{
               return(

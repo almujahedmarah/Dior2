@@ -10,7 +10,7 @@ const navigate= useNavigate()
 // const {id,colId} = useParams()
 
 useEffect(()=>{
-    axios.get(`http://localhost:3001/Admin/collection/${colId}`)
+    axios.get(`http://localhost:3001/Admin/collection/61b1ddbbdb2645c13798f3ce`)
     .then((res)=>{
      console.log(res.data.Parfume);
      setMiss(res.data.Parfume)
@@ -18,7 +18,7 @@ useEffect(()=>{
 },[])
 
 const deletitem =(_id)=>{
-axios.delete(` http://localhost:3001/Admin/Parfume/${colId}/${_id}`)
+axios.delete(` http://localhost:3001/Admin/Parfume/61b1ddbbdb2645c13798f3ce/${_id}`)
 .then((res) =>{
 console.log(res.data.Parfume);
 setMiss(res.data.Parfume)
@@ -43,7 +43,7 @@ const editpag =(id)=>{
                     <h3>{item.name}</h3>
                     <h4>RS{item.price}</h4>
                     <button onClick={()=> deletitem(item._id)}>Delet</button>
-                        <button onClick={()=>editpag(item._id)}>Eidt</button>
+                    <button onClick={()=>editpag(item._id)}>Eidt</button>
                     </div>
                 )
             })}
