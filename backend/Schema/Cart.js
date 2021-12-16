@@ -2,12 +2,16 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
 module.exports = new mongoose.Schema({
-    product:[{
-        type: Schema.Types.ObjectId,
-        ref:'perfume'
-    }],
-    // qty:{
-    //     type:Number,
-    //     default:1,
-    // },
+
+    product: [
+        {
+          items: { type: Schema.Types.ObjectId, ref: "perfume" },
+          subtotal: Number,
+          quantity: Number,
+        },
+      ],
+    
+      total: {
+        type: Number,
+      },
   });

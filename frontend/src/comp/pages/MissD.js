@@ -42,7 +42,7 @@ const alignCenter = { display: 'flex', alignItems: 'center' }
                          <img className='jadimg' src={item.image}/>
                          <div className='jad'>
                          <h4 className='jname'>{item.name}</h4>
-                         <p className='jpric'>${item.price}</p>
+                         <p className='jpric'>RS {item.price}</p>
                          <button className='jbutton' type="submit">pay me</button>
                          </div>
                          </div>

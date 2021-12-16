@@ -22,28 +22,104 @@ router.get("/", async (req, res) => {
     res.send( await  User.findByIdAndUpdate(req.params.id,{...req.body})) 
   });
 //-=========================CART===========================================================
-router.post("/cart/:Uid", async (req, res)=>{
-     await  User.findById(req.params.Uid)
-     .then((user)=>{
-         console.log(user.cart)
-         if(user.cart == undefined){
-        Cart.create({product:req.body.product})
-        .then(async(cart)=>{
-         await User.findByIdAndUpdate(req.params.Uid, {cart:cart}).then(async(newUser)=>{
-             await user.save()
-             res.send(newUser)
-         })
-        })
-        }else{
-            Cart.findByIdAndUpdate(user.cart,{$push:{product:req.body.product}})
-            .then(async(cart)=>{
-             await User.findByIdAndUpdate(req.params.Uid, {cart:cart})
-              await user.save()
-              res.send(user)
+// router.post("/cart/:Uid", async (req, res)=>{
+//      await  User.findById(req.params.Uid)
+//      .then((user)=>{
+//          console.log(user.cart)
+//          if(user.cart == undefined){
+//         Cart.create({product:req.body.product})
+//         .then(async(cart)=>{
+//          await User.findByIdAndUpdate(req.params.Uid, {cart:cart}).then(async(newUser)=>{
+//              await user.save()
+//              res.send(newUser)
+//          })
+//         })
+//         }else{
+//             Cart.findByIdAndUpdate(user.cart,{$push:{product:req.body.product}})
+//             .then(async(cart)=>{
+//              await User.findByIdAndUpdate(req.params.Uid, {cart:cart})
+//               await user.save()
+//               res.send(user)
+//             })
+//         }
+//      })
+// })
+
+ router.post("/cart/:Uid/:CId/:PId", async (req, res)=>{
+
+let product = await collection.findById(req.params.CId).select({  Parfume: {$elemMatch: {_id: req.params.PId}}});
+console.log(product)
+User.findById({ _id: req.params.Uid }).then((user) => {
+  if (user.cart == undefined) {
+    Cart.create({
+        product:{
+        items: req.params.PId,
+        subtotal: product.Parfume[0].price * req.body.quantity,
+        quantity: req.body.quantity,
+      },
+      total: product.Parfume[0].price * req.body.quantity,
+    }).then((cart) => {
+      User.findByIdAndUpdate( req.params.Uid, {
+        cart: cart,
+      }).then(async (user) => {
+        await user.save();
+        res.send(user);
+      });
+    });
+  } else {
+    console.log("cart " + user.cart);
+    User.findById({ _id: req.params.Uid })
+      .populate("cart")
+      .then((openCart) => {
+        console.log(openCart);
+        let item = openCart.cart.product.find(
+          (it) => it.items == req.params.PId
+        );
+        if (openCart.cart.product.includes(item)) {
+          console.log("includes");
+
+          let cartId = user.cart;
+          let cartQuantity = {
+            cart: {
+              items: req.params.PId,
+              subtotal: product.Parfume[0].price * (item.quantity + req.body.quantity),
+              quantity: item.quantity + req.body.quantity,
+            },
+            total: openCart.cart.total +product.Parfume[0].price* req.body.quantity,
+          };
+          Cart.findByIdAndUpdate(cartId, { $set: cartQuantity })
+            .then((user) => {
+              res.json({ message: "Cart information has been updated" });
             })
+            .catch((error) => {
+              res.json({ error: erorr });
+            });
+        } else {
+          console.log("not includes");
+
+
+          Cart.findByIdAndUpdate(user.cart, {
+            $push: {
+              cart: {
+                items: req.params.PId,
+                subtotal: product.Parfume[0].price* req.body.quantity,
+                quantity: req.body.quantity,
+              },
+            },
+            total: openCart.cart.total + product.Parfume[0].price* req.body.quantity,
+          }).then((cart) => {
+            User.findByIdAndUpdate(req.params.Uid, {
+              cart: cart,
+            }).then(async (user) => {
+              await user.save();
+              res.send(user);
+            });
+          });
         }
-     })
-})
+      });
+  }
+});
+ })
 
 router.get("/cart/:Uid", async (req, res)=>{
    let arr = []

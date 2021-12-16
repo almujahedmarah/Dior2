@@ -19,10 +19,10 @@ console.log(jador)
 const alignCenter = { display: 'flex', alignItems: 'center' }
 
     return (
-        <div>
- <div className="backgroundjad" />
-<Parallax  pages={3.7} top={10}>
-<ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' , backgroundImage:`url("https://i.ibb.co/M56JwHD/Magical-Music-Venues.jpg")` , backgroundSize:"cover", height:"550px" }}>
+        <div >
+ <div className="backgroundjad"  />
+<Parallax   pages={3.7} top={10}>
+<ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' , backgroundImage:`url("https://i.ibb.co/M56JwHD/Magical-Music-Venues.jpg")` , backgroundSize:"cover", height:"600px" }}>
 <div className='jadortitl'>
 <h1>J'ADORE</h1>
 <p className='jadop'>Life is gold</p>
@@ -43,9 +43,9 @@ const alignCenter = { display: 'flex', alignItems: 'center' }
                   <div className="jadorc">
                   <img className='jadimg' src={item.image}/>
                   <div className='jad'>
-                  <h4 className='jname'>{item.name}</h4>
-                  <p className='jpric'>${item.price}</p>
-                  <button className='jbutton' type="submit">pay me</button>
+                  <h4 className='jname1'>{item.name}</h4>
+                  <p className='jpric1'>RS {item.price}</p>
+                  <button className='jbutton1' type="submit">pay me</button>
                   {/* <hr/> */}
                   </div>
                   </div>
