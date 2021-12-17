@@ -45,6 +45,8 @@ router.get("/", async (req, res) => {
 //      })
 // })
 
+//========================= CREATE CART AND ADD TOO CART =============================================================================================================
+
  router.post("/cart/:Uid/:CId/:PId", async (req, res)=>{
 
 let product = await collection.findById(req.params.CId).select({  Parfume: {$elemMatch: {_id: req.params.PId}}});
@@ -120,7 +122,7 @@ User.findById({ _id: req.params.Uid }).then((user) => {
   }
 });
  })
-
+ //============================ SHOW THE CART ========================================================================================================
 router.get("/cart/:Uid", async (req, res)=>{
    let arr = []
   

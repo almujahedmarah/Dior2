@@ -34,8 +34,9 @@ export default function Addmiss() {
   };
 
   return (
-    <div>
+    <div className="adddddd">
       <form
+      className="addpro"
         onSubmit={(e) => {
           AddDior(e);
         }}
@@ -48,7 +49,7 @@ export default function Addmiss() {
         <input type="number" />
         <label>Description</label>
         <input type="text" />
-        <button type="submit">Added</button>
+        <button className="singup" type="submit">Added</button>
       </form>
     </div>
   );

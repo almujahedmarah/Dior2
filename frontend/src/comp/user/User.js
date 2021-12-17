@@ -25,7 +25,7 @@ export default function User() {
           localStorage.setItem("id", response.data.id)
 
         setUserg(response.data)
-          navigate("/Joy")
+          navigate("/")
           alert("Hello!! welcom");
         })
     }
@@ -39,19 +39,19 @@ export default function User() {
             console.log(res.data);
             setUser([...user,res.data])
         })
-            //   navigate("/")
-            //   alert("Hello!! welcom");
+              navigate("/")
+              alert("Hello!! welcom");
     }
 
 // =============================================================================================================
     return (
         <div>
-            <Parallax pages={2} style={{ top: '15', left: '0', backgroundColor: "rgba(223, 186, 186, 0.877)"}}>
+            <Parallax pages={2} style={{ top: '15', left: '0', backgroundColor: "#F9D6D4"}}>
 
 <ParallaxLayer
   offset={0}
   speed={2.5}
-  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "rgba(223, 186, 186, 0.877)" }}>
+  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: "#F9D6D4" }}>
             <div className="sup-main">
             <div className="input">
                 <h2>Singup</h2>
@@ -71,7 +71,7 @@ export default function User() {
             </div>
 </ParallaxLayer>
 
-<ParallaxLayer className='ii' offset={1} speed={2} style={{ backgroundColor: "rgba(61, 47, 47, 0.877)" }} />
+<ParallaxLayer className='ii' offset={1} speed={2} style={{ backgroundColor: "#E6B5B8" }} />
 
 <ParallaxLayer
   offset={1}

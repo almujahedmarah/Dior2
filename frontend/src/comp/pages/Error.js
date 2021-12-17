@@ -5,7 +5,8 @@ export default function Error() {
         <div className='error'>
             <div className='eror'>
             <h2>404...</h2>
-            <h1>Dior</h1>
+            <p>Oops Error page</p>
+        
             </div>
         </div>
     )
