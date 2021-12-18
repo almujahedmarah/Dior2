@@ -79,30 +79,55 @@ User.findById({ _id: req.params.Uid }).then((user) => {
         );
         if (openCart.cart.product.includes(item)) {
           console.log("includes");
+          console.log(openCart._id);
+          // console.log(product);
 
-          let cartId = user.cart;
-          let cartQuantity = {
-            cart: {
-              items: req.params.PId,
-              subtotal: product.Parfume[0].price * (item.quantity + req.body.quantity),
-              quantity: item.quantity + req.body.quantity,
+          Cart.updateOne(
+            { _id: user.cart, "product.items": req.params.PId },
+            {
+              $inc: { "product.$.quantity": req.body.quantity },
+              $set: {
+                "product.$.items": req.params.PId,
+                "product.$.subtotal":
+                product.Parfume[0].price * (item.quantity + req.body.quantity),
+              },
+              total:
+                openCart.cart.total +  product.Parfume[0].price * req.body.quantity,
             },
-            total: openCart.cart.total +product.Parfume[0].price* req.body.quantity,
-          };
-          Cart.findByIdAndUpdate(cartId, { $set: cartQuantity })
-            .then((user) => {
-              res.json({ message: "Cart information has been updated" });
-            })
-            .catch((error) => {
-              res.json({ error: erorr });
-            });
+            function (err, model) {
+              if (err) {
+                console.log(err);
+              }
+            }
+          );
+
+          console.log("rrr");
+          Cart.findById({ _id: user.cart }).then((newCart) => {
+            res.send(newCart);
+          });
+          // let cartId = user.cart;
+          // let cartQuantity = {
+          //   product: [...openCart.cart.product, {
+          //     items: req.params.PId,
+          //     subtotal: product.Parfume[0].price * (item.quantity + req.body.quantity),
+          //     quantity: item.quantity + req.body.quantity,
+          //   }],
+          //   total: openCart.cart.total +product.Parfume[0].price* req.body.quantity,
+          // };
+          // Cart.findByIdAndUpdate(cartId, { $set: cartQuantity })
+          //   .then((user) => {
+          //     res.json({ message: "Cart information has been updated" });
+          //   })
+          //   .catch((error) => {
+          //     res.json({ error: erorr });
+          //   });
         } else {
           console.log("not includes");
 
 
           Cart.findByIdAndUpdate(user.cart, {
             $push: {
-              cart: {
+              product: {
                 items: req.params.PId,
                 subtotal: product.Parfume[0].price* req.body.quantity,
                 quantity: req.body.quantity,
@@ -128,7 +153,6 @@ router.get("/cart/:Uid", async (req, res)=>{
   
     await  User.findById(req.params.Uid).populate('cart')
     .then(async(user)=>{
-      
 
 
         if(user.cart == undefined){
@@ -139,13 +163,14 @@ router.get("/cart/:Uid", async (req, res)=>{
        
         collection.find({}).populate("Parfume").populate("Parfume.name").exec(function(err,product){
             product.forEach((Pro)=>{
-                
+
                 user.cart.product.forEach(async (cartPro)=>{
-                
-                  const products =  Pro.Parfume.find(o => {return o._id.toString() == cartPro._id.toString()})
-                //    console.log(products)
+                 
+
+                  const products =  Pro.Parfume.find(o => { 
+                    return o._id.toString() === cartPro.items.toString()})
                    if(products !== undefined){
-                    // console.log(products)
+                    //  console.log("products")
                      arr.push(products)
                     //  console.log(arr) 
                    }
@@ -161,6 +186,42 @@ router.get("/cart/:Uid", async (req, res)=>{
     })
 })
 
+//========== DELET FROM CART===================================================================================
+
+router.delete("/delet/:userId/:itemsId" ,(req, res) => {
+  User.findById({ _id: req.params.userId }).then((user) => {
+    console.log(user);
+    Cart.findByIdAndUpdate(
+      { _id: user.cart },
+      {
+        $pull: {
+          product: {
+            items: req.params.itemsId,
+          },
+        },
+      }
+    ).then((cart) => {
+      console.log(cart);
+      let subtotal;
+      cart.product.forEach((element) => {
+        if (element.items == req.params.itemsId) {
+          console.log(element.subtotal);
+          subtotal = element.subtotal;
+        }
+      });
+      Cart.findByIdAndUpdate(
+        { _id: user.cart },
+        {
+          total: cart.total - subtotal,
+        }
+      ).then((newCart) => {
+        newCart.save();
+        res.send(newCart);
+      });
+    });
+  });
+},
+)
 
 
 //==========login======================================================================

@@ -22,9 +22,9 @@ export default function App() {
 
       <Routes>
         <Route exact="true" path="/" element={<Home />}></Route>
-        <Route path="/Jadore" element={<Jadore />}></Route>
-        <Route path="/MissD" element={<MissD />}></Route>
-        <Route path="/Joy" element={<Joy />}></Route>
+        <Route path="/J'ADORE/:colId" element={<Jadore />}></Route>
+        <Route path="/MISSDIOR/:colId" element={<MissD />}></Route>
+        <Route path="/JOY/:colId" element={<Joy />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
         <Route path="/User" element={<User />}></Route>
         <Route path="/Login" element={<Login />}></Route>

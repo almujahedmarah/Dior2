@@ -27,22 +27,26 @@ export default function Jadore() {
   const alignCenter = { display: "flex", alignItems: "center" };
 
   //==================================================================================================
+const uid = localStorage.getItem("id")
 
-  // const createAdd = (_id) => {
-  //   axios
-  //     .post(`http://localhost:3001/user/cart/${uid}/${colId}/${_id}`)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setCart(res.data);
-  //     });
-  // };
+
+  const createAdd = (item) => {
+    console.log(item);
+    axios
+      .post(`http://localhost:3001/user/cart/${uid}/${colId}/${item._id}`, {quantity:1})
+      .then((res) => {
+        console.log(res.data);
+        setCart(res.data);
+      });
+  };
+  
 
   //==================================================================================================================
 
   return (
     <div>
       <div className="background" />
-      <Parallax pages={4.7} top={10}>
+      <Parallax pages={5} top={10}>
         <ParallaxLayer
           offset={0}
           speed={0.5}
@@ -79,7 +83,7 @@ export default function Jadore() {
         </ParallaxLayer>
         <ParallaxLayer
           sticky={{ start: 2, end: 4 }}
-          style={{ ...alignCenter, justifyContent: "flex-start" }}
+          style={{ ...alignCenter, justifyContent: "flex-start" , width: "400px"}}
         >
           <div>
             <img
@@ -98,18 +102,16 @@ export default function Jadore() {
             {jador.map((item) => {
               return (
                 <div className="jadorc">
-                  <img className="jadimg" src={item.image} />
+                  <img  className="jadimg" src={item.image} />
                   <div className="jad">
                     <h4 className="jname">{item.name}</h4>
                     <p className="jpric">RS {item.price}</p>
                     <button
                       className="jbutton"
-                      // onClick={() => createAdd(item._id)}
-                      type="submit"
+                      onClick={() => createAdd(item)}
                     >
-                      pay me
+                      pay meee
                     </button>
-                    {/* <hr/> */}
                   </div>
                 </div>
               );

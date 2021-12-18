@@ -17,10 +17,13 @@ export default function Home() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#ffefe8",
+            justifyContent: "center",
+            backgroundImage: `url("https://www.dior.com/couture/var/dior/storage/images/25778945/17-eng-GB/cdc-femme-gift-for-her6_1440_1200.jpg")`,
+            backgroundSize: "cover",
+            height: "600px",
           }}
         >
-          <h1>hi</h1>
+          <h1 className="homett">DIOR</h1>
         </ParallaxLayer>
 
         <ParallaxLayer
