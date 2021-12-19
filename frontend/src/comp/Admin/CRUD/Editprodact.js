@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function Editmiss() {
+
+
+export default function Editprodact() {
   const [miss, setMiss] = useState([]);
   const [name, setName] = useState();
   const [img, setImg] = useState();
@@ -12,7 +14,7 @@ export default function Editmiss() {
 
   const { colId, id } = useParams();
 
-//=====================================================================================
+  //=====================================================================================
 
   useEffect(() => {
     axios
@@ -23,8 +25,7 @@ export default function Editmiss() {
       });
   }, []);
 
-//====================================================================================
-
+  //====================================================================================
 
   const putData = (e) => {
     e.preventDefault();
@@ -43,27 +44,26 @@ export default function Editmiss() {
     alert("Updated successfully");
   };
 
-//===============================================================================================
+  //===============================================================================================
 
+  // const updatePage = () => {
+  //   axios
+  //     .get(`http://localhost:3001/Admin/collection/${colId}`)
+  //     .then((res) => {
+  //       console.log(res.data.Parfume);
+  //       setMiss(res.data.Parfume);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.res);
+  //     });
+  // };
 
-  const updatePage = () => {
-    axios
-      .get(`http://localhost:3001/Admin/collection/${colId}`)
-      .then((res) => {
-        console.log(res.data.Parfume);
-        setMiss(res.data.Parfume);
-      })
-      .catch((error) => {
-        console.log(error.res);
-      });
-  };
-
-//========================================================================================
+  //========================================================================================
 
   return (
     <div className="adddddd">
       <form
-      className="addpro"
+        className="addpro"
         onSubmit={(e) => {
           putData(e);
         }}
@@ -96,7 +96,9 @@ export default function Editmiss() {
             setDec(e.target.value);
           }}
         />
-        <button className="singup" type="submit">Eidet</button>
+        <button className="singup" type="submit">
+          Eidet
+        </button>
       </form>
     </div>
   );

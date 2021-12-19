@@ -71,7 +71,7 @@ export default function User() {
             </div>
 </ParallaxLayer>
 
-<ParallaxLayer className='ii' offset={1} speed={2} style={{ backgroundColor: "#E6B5B8" }} />
+<ParallaxLayer className='ii' offset={1} speed={2} style={{ backgroundColor: "#AD867B" }} />
 
 <ParallaxLayer
   offset={1}

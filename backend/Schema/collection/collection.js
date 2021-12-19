@@ -9,5 +9,14 @@ module.exports =  new mongoose.Schema({
     Parfume: [ParfumeSchema],
     img: {
       type:String
+    },
+    hederImg:{
+      type:String
+    },
+    vidourl:{
+      type:String
+    },
+    stickyimg:{
+      type:String
     }
   });

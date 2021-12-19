@@ -5,6 +5,7 @@ import Footer from "../pages/Footer";
 
 export default function Cart() {
   const [create, setCreate] = useState([]);
+  const [loding, setLoding] = useState(false);
   //  const [cart , setCart] = useState(true)
   const id = localStorage.getItem("id");
 
@@ -13,7 +14,8 @@ export default function Cart() {
       console.log('res ===>',res);
       setCreate(res.data);
       console.log("cart  total ===>", create);
-      //  setCart(false)
+    setLoding(true)
+      // updatePage();
 
     });
   }, []);
@@ -57,7 +59,10 @@ export default function Cart() {
             backgroundColor: "#ffefe8",
           }}
         >
-          <h1 className="CART">DIOR</h1>
+          <div className="CART">
+          <h1 >DIOR</h1>
+          <p >your Cart</p>
+          </div>
         </ParallaxLayer>
         {/* ============================ map part ===================================================================== */}
         <ParallaxLayer
@@ -76,27 +81,39 @@ export default function Cart() {
           // }}
         >
                <div>
-              {create.map((item) =>{
+                 {loding? 
+                 <>
+                    {create.products.map((item,i) =>{
                 return(
                   <div  className="gggg">
                     <button  className="Cbutton" onClick={() => deletcart(item._id)} >x</button>
                     <img className="cartimg" src={item.image} />
                     <h4>{item.name}</h4>
                     <p>RS{item.price}</p>
+                    <p>{create.cart.product[i].quantity}</p>
+
+                    <p></p>
                   </div>
                 )
               })}
+                <div>
+              <h4>{create.cart.total}</h4>
+              </div>  
+                 </>
+                 :
+                 <>
+                 <h1>Loading...</h1></>
+                }
+           
             </div> 
-            {/* <div>
-              <h4>{create.total}</h4>
-              </div>            */}
+                   
         </ParallaxLayer>
         {/* //==================== FOOTER PART========================================================== */}
         <ParallaxLayer
           className="ii"
           offset={2}
           speed={0.1}
-          style={{ backgroundColor: "#E6B5B8" }}
+          style={{ backgroundColor: "#AD867B" }}
         />
        
         <ParallaxLayer

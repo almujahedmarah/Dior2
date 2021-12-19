@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router,Routes, Route, Link, useNavigate } from "react-router-dom";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import LoginIcon from '@mui/icons-material/Login';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Home from './Home'
 import Jadore from "./Jadore"
 import MissD from "./MissD"
-import Joy from "./Joy"
 import Cart from './Cart'
 import User from '../user/User'
 import Login from '../Admin/Login'
@@ -24,17 +27,20 @@ export default function Nav() {
     return (
         <div className="nav">
             <ul>
-                < Link className="link"  to="/">Dior</Link>
+                < Link className="link"  to="/"><h2>Dior</h2></Link>
+                
                 {Coll.map((item)=>{
                     return(
-                < Link  className="link"  to={`/${item.name}/${item._id}`}>{item.name}</Link>
+                < Link  className="link"  to={`/collection/${item._id}`}>{item.name}</Link>
                     )
                 })}
                 {/* < Link  className="link"  to="/MissD">Miss Dior</Link>
                 < Link  className="link"  to="/Joy">Joy</Link> */}
-                < Link  className="link"  to="/User">User</Link>
-                < Link  className="link"  to="/Cart">Cart</Link>
-                < Link  className="link"  to="/Login">Admin</Link>
+                < Link  className="link"  to="/User"><LoginIcon /></Link>
+                < Link  className="link"  to="/Cart"><AddShoppingCartIcon/></Link>
+                < Link  className="link"  to="/Order"><LocalMallIcon/></Link>
+                < Link  className="link"  to="/Login"><AdminPanelSettingsIcon/></Link>
+                
             </ul>
         </div>
     )

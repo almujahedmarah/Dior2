@@ -3,7 +3,6 @@ import "./App.css";
 import Nav from "./comp/pages/Nav";
 import Jadore from "./comp/pages/Jadore";
 import MissD from "./comp/pages/MissD";
-import Joy from "./comp/pages/Joy";
 import Cart from "./comp/pages/Cart";
 import User from "./comp/user/User";
 import Login from "./comp/Admin/Login";
@@ -13,6 +12,7 @@ import Addprodact from "./comp/Admin/CRUD/Addprodact";
 import Editprodact from "./comp/Admin/CRUD/Editprodact";
 import Home from "./comp/pages/Home";
 import Error from "./comp/pages/Error";
+import Order from "./comp/pages/Order"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
@@ -22,17 +22,17 @@ export default function App() {
 
       <Routes>
         <Route exact="true" path="/" element={<Home />}></Route>
-        <Route path="/J'ADORE/:colId" element={<Jadore />}></Route>
-        <Route path="/MISSDIOR/:colId" element={<MissD />}></Route>
-        <Route path="/JOY/:colId" element={<Joy />}></Route>
+        {/* <Route path="/collection/:colId" element={<Jadore />}></Route> */}
+        <Route path="/collection/:colId" element={<MissD />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
         <Route path="/User" element={<User />}></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/AHome" element={<AHome />}></Route>
         <Route path="/:colId" element={<Prodact />}></Route>
         <Route path="/Addprodact/:colId" element={<Addprodact />}></Route>
-        <Route path="/Editprodact/:colId /:id" element={<Editprodact />}></Route>
+        <Route path="/Editprodact/:colId/:id" element={<Editprodact />}></Route>
         <Route path="*" element={<Error />}></Route>
+        <Route path="/Order" element={<Order />}></Route>
       </Routes>
     </div>
   );

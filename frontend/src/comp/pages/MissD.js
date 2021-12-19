@@ -2,18 +2,23 @@ import React from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 export default function MissD() {
   const [miss, setMiss] = useState([]);
-
+  const [col, setCol] = useState([]);
+  const { colId } = useParams();
+  
   useEffect(() => {
     axios
-      .get("http://localhost:3001/Dior/collection/61b1ddbbdb2645c13798f3ce")
+      .get(`http://localhost:3001/Dior/collection/${colId}`)
       .then((res) => {
         console.log(res.data.Parfume);
+        setCol(res.data)
         setMiss(res.data.Parfume);
       });
-  }, []);
+  }, [colId]);
   // console.log(jador)
   const alignCenter = { display: "flex", alignItems: "center" };
 
@@ -27,13 +32,13 @@ export default function MissD() {
           style={{
             ...alignCenter,
             justifyContent: "center",
-            backgroundImage: `url("https://i.ibb.co/wwBwsPg/Duft-Quickie-Miss-Dior-Rose-N-Roses.jpg")`,
+            backgroundImage: `url(${col.hederImg})`,
             backgroundSize: "cover",
             height: "600px",
           }}
         >
           <div className="missdtitl" >
-          <h1 >Miss Dior</h1>
+          <h1 >{col.name}</h1>
           <p>By Dior</p>
           </div>
         </ParallaxLayer>
@@ -48,10 +53,15 @@ export default function MissD() {
         >
           
             
-            <video width="1200px" height="600px"  controls>
-  <source src="https://secure.massmotionmedia.com/diorparfums/projects/diorparfums_miss_dior_itw_francois_demachy_va/videos/20210802115103_960x540_1900_3385964e-aa1d-4313-ad55-424ab35e6a52.mp4" type="video/mp4"/>
+            {/* <video width="1200px" height="600px"  controls>
+  <source type="video/mp4" src={col.vidourl} /> */}
+  {console.log(col.vidourl)}
+<video  src={col.vidourl}  type="video/mp4"  width="auto" height="auto" controls  >
+{/* <source  src={col.vidourl}  type="video/mp4" ></source> */}
+
 </video>
-          
+  {/* <source type="video/mp4" src="https://secure.massmotionmedia.com/diorparfums/projects/diorparfums_film_savoir_faire_jasmin_en/videos/20200219174729_960x540_1300_45f543de-525c-468f-8480-a81b69f0da90.mp4"></source> */}
+{/* </video> */}
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -61,7 +71,7 @@ export default function MissD() {
           <div>
             <img
               className="missdimg"
-              src="https://i.pinimg.com/474x/e1/3d/0b/e13d0b983fd3ad2938fd357d44c2f901.jpg"
+              src={col.stickyimg}
             />
           </div>
         </ParallaxLayer>

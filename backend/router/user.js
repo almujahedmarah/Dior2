@@ -172,13 +172,13 @@ router.get("/cart/:Uid", async (req, res)=>{
                    if(products !== undefined){
                     //  console.log("products")
                      arr.push(products)
-                    //  console.log(arr) 
+                      console.log(arr) 
                    }
                     
                  })
                   
              })
-             res.send(arr)
+             res.send({products:arr, cart:user.cart})
         })
         
 

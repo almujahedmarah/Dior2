@@ -45,10 +45,11 @@ export default function AHome() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "F1C6B8",
+            backgroundImage:`url("https://i.ibb.co/gJ2xjVR/Untitleddfzdg.png")`,
+            backgroundSize:"cover"
           }}
         >
-          <h1>hi admin</h1>
+          <h1 className="adminhi">Admin</h1>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -72,6 +73,7 @@ export default function AHome() {
               return (
                 <div>
                   <h2 className="Aht">{col.name}</h2>
+
                   <img
                     className="Ah"
                     onClick={() => jadorpage(col._id)}
@@ -87,7 +89,7 @@ export default function AHome() {
           className="ii"
           offset={2}
           speed={1.0}
-          style={{ backgroundColor: "#E6B5B8" }}
+          style={{ backgroundColor: "#AD867B" }}
         />
 
 {/* //============================================================================================================ */}

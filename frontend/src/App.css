@@ -18,7 +18,7 @@
   width: 35%;
   box-shadow: 11px 12px 13px rgba(0, 0, 0, 0.61) ;
   padding-top: 30px;
-  border-radius: 40px;
+  border-radius: 20px;
   background-color: rgba(236, 233, 233, 0.123);
   margin-bottom: 20px;
 }
@@ -76,7 +76,7 @@ margin-top: 50px;
 ul{
   margin-left: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
 }
 .link{
@@ -301,3 +301,58 @@ margin-bottom: 20px;
   margin-left: 60px;
   padding-bottom: 20px;
 }
+.homep1{
+  display: flex;
+  gap: 160px;
+}
+.homep1img{
+  height: auto;
+  width: 500px;
+}
+.homep1p{
+  padding-top: 70px;
+  width: 500px;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0%; */
+}
+.homepvid{
+  display: flex;
+  /* gap: 50px; */
+
+}
+.hhhhhpppppp{
+  margin-left: 3%;
+  margin-right: 3%; 
+  padding-top: 70px;
+  /* width: 100px; */
+  height: 10px;
+}
+.videohh{
+  margin-right: 3%; 
+}
+.hp1ee{
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5%;
+  color: rgba(0, 0, 0, 0.712);
+}
+.homecard{
+  display: flex;
+  gap: 70px;
+  margin-top: 10%;
+  margin-left: 13%;
+}
+
+.CART{
+  font-size: 40px;
+  color:rgba(46, 1, 1, 0.726);
+  align-items: center;
+  text-align: center;
+}
+.adminhi{
+  font-size: 80px;
+color: rgba(219, 218, 218, 0.76);
+}
+
+
