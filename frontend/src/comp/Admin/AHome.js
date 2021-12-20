@@ -68,10 +68,18 @@ export default function AHome() {
             alignItems: "center",
           }}
         >
+          <div className="adminp1">
+            {/* <div className="undertheheder">
+              <img src=""/>
+              <img src=""/>
+              <img src=""/>
+            </div> */}
+            <p className="adph">The new Miss Dior bow dresses up with ABCDior charms, adjusted onto a delicately worked brooch, ended with the iconic Dior star.
+           A true couture statement, to personalize your Miss Dior fragrance 100ml in an infinite number of possibilities. A few centimeters of absolute luxury tied around the neck of the new Miss Dior bottle. A Haute Couture bow, imagined like a myriad of multicolored floral touches, by one of France's finest ribbonmakers.</p>
           <div className="adminhome">
             {Coll.map((col) => {
               return (
-                <div>
+                <div className="#">
                   <h2 className="Aht">{col.name}</h2>
 
                   <img
@@ -83,6 +91,12 @@ export default function AHome() {
               );
             })}
           </div>
+          <p  className="adp">A few centimeters of absolute luxury tied around the neck of the new Miss Dior bottle. A Haute Couture bow, imagined like a myriad of multicolored floral touches, by one of France's finest ribbonmakers.</p>
+          <div>
+            <img src="https://i.ibb.co/Svjd31s/Untitledvvvv.png"/>
+          </div>
+          </div>
+        
         </ParallaxLayer>
 {/* //======================================================================================================= */}
         <ParallaxLayer

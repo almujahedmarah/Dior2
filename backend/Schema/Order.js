@@ -4,10 +4,7 @@ var Schema = mongoose.Schema
 module.exports = new mongoose.Schema({
 
 
-        carts: {
-          type: Schema.Types.ObjectId,
-          ref: "Cart",
-        },
+        carts: { },
       
         userId: {
             type: Schema.Types.ObjectId,

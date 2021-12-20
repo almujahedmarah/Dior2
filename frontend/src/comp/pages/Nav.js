@@ -4,6 +4,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import LoginIcon from '@mui/icons-material/Login';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Home from './Home'
 import Jadore from "./Jadore"
 import MissD from "./MissD"
@@ -14,8 +15,17 @@ import axios from "axios";
 
 // import './App.css'
 export default function Nav() {
-    const navigate1 = useNavigate();
+    const navigate = useNavigate();
     const [Coll, setColl] = useState([]);
+    const id = localStorage.getItem("id");
+
+    const logout =() =>{
+        console.log("ggg")
+        localStorage.removeItem("id")
+        localStorage.removeItem("token")
+        navigate("/")
+       
+        }
 
     useEffect(() => {
         axios.get("http://localhost:3001/Admin/collection").then((res) => {
@@ -36,11 +46,11 @@ export default function Nav() {
                 })}
                 {/* < Link  className="link"  to="/MissD">Miss Dior</Link>
                 < Link  className="link"  to="/Joy">Joy</Link> */}
-                < Link  className="link"  to="/User"><LoginIcon /></Link>
+                < Link  className="link"  to="/User">{id ==undefined?<LoginIcon/>:< LogoutIcon onClick={logout}/>}</Link>
                 < Link  className="link"  to="/Cart"><AddShoppingCartIcon/></Link>
                 < Link  className="link"  to="/Order"><LocalMallIcon/></Link>
                 < Link  className="link"  to="/Login"><AdminPanelSettingsIcon/></Link>
-                
+                {/* {id!=null?<LoginIcon/>:<LogoutIcon/>} */}
             </ul>
         </div>
     )

@@ -1,11 +1,18 @@
 
-import React, {useState} from "react";
+import React, {useEffect,useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Footer from '../pages/Footer'
 
 export default function Order() {
+  const id = localStorage.getItem("id");
+  useEffect( ()=>{
+    axios.post("http://localhost:3001/orders/get", {userId:id})
+    .then((res)=>{
+      console.log(res.data);
+    })
+  },[])
     return (
         <Parallax pages={2} style={{ top: '15', left: '0', backgroundColor: "#F9D6D4"}}>
 

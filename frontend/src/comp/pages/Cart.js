@@ -2,22 +2,30 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Footer from "../pages/Footer";
+import {useNavigate} from 'react-router-dom'
 
 export default function Cart() {
-  const [create, setCreate] = useState([]);
+  const [create, setCreate] = useState();
   const [loding, setLoding] = useState(false);
   //  const [cart , setCart] = useState(true)
   const id = localStorage.getItem("id");
+  const navigate = useNavigate();
+
 
   useEffect(() => {
+    if(id != undefined){
     axios.get(`http://localhost:3001/user/cart/${id}`).then((res) => {
       console.log('res ===>',res);
-      setCreate(res.data);
-      console.log("cart  total ===>", create);
+      if(res.data !== "u dont have a cart"){
+        setCreate(res.data);
+        console.log("cart  total ===>", create);  
+      }
+    
     setLoding(true)
       // updatePage();
 
     });
+  }
   }, []);
 
 
@@ -41,6 +49,15 @@ export default function Cart() {
 
       updatePage();
     })
+  }
+  const Checkout=()=>{
+    axios.post("http://localhost:3001/orders",{ userId:id, cart:create})
+    .then((res)=>{
+      console.log(res);
+
+      navigate("/Order")
+    })
+
   }
 
   return (
@@ -80,6 +97,7 @@ export default function Cart() {
           //   alignItems: "center",
           // }}
         >
+          {id === undefined || create === undefined  ? <h3>Cart is empty</h3> :
                <div>
                  {loding? 
                  <>
@@ -91,13 +109,12 @@ export default function Cart() {
                     <h4>{item.name}</h4>
                     <p>RS{item.price}</p>
                     <p>{create.cart.product[i].quantity}</p>
-
-                    <p></p>
                   </div>
                 )
               })}
                 <div>
               <h4>{create.cart.total}</h4>
+              <button onClick={()=>Checkout()}>Checkout</button>
               </div>  
                  </>
                  :
@@ -106,7 +123,7 @@ export default function Cart() {
                 }
            
             </div> 
-                   
+}    
         </ParallaxLayer>
         {/* //==================== FOOTER PART========================================================== */}
         <ParallaxLayer

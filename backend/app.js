@@ -58,7 +58,7 @@ app.get('/', (req,res)=>{
 app.use("/Admin", Admin)
 app.use('/user', user)
 app.use('/Dior', Dior)
-app.use('/orders/',orders)
+app.use('/orders',orders)
 
 app.listen(3001, () =>{
     console.log("hi  i worked b");

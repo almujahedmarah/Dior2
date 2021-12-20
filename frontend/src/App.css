@@ -174,11 +174,24 @@ ul{
   padding-top: 160px;
   padding-right: 90px;
 }
-
+.adminp1{
+/* margin-left: 80px; */
+}
+.adph{
+/* padding-bottom: 80px;
+width: 680px;
+align-items: center;
+text-align: center; */
+}
+.adp{
+padding-top: 90px;
+width: 680px;
+align-items: center;
+text-align: center;
+}
 .adminhome{
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-gap: 150px;
+display: flex; 
+ padding-left: 80px;
 }
 .Ah{
   height: 250px;
@@ -187,7 +200,10 @@ grid-gap: 150px;
 .Aht{
 text-align: center;
 color:#865554 ;
-margin-bottom: 20px;
+/* margin-bottom: 20px; */
+align-items: center;
+text-align: center;
+padding-right:100px ;
 }
 .missdtitl{
   color: rgba(8, 6, 6, 0.877);

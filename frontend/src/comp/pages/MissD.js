@@ -9,6 +9,8 @@ export default function MissD() {
   const [miss, setMiss] = useState([]);
   const [col, setCol] = useState([]);
   const { colId } = useParams();
+  const [cart, setCart] = useState("");
+
   
   useEffect(() => {
     axios
@@ -21,7 +23,20 @@ export default function MissD() {
   }, [colId]);
   // console.log(jador)
   const alignCenter = { display: "flex", alignItems: "center" };
+  //=========================================================================================================
+  const uid = localStorage.getItem("id")
 
+
+  const createAdd = (item) => {
+    console.log(item);
+    axios
+      .post(`http://localhost:3001/user/cart/${uid}/${colId}/${item._id}`, {quantity:1})
+      .then((res) => {
+        console.log(res.data);
+        setCart(res.data);
+      });
+  };
+//============================================================================================================
   return (
     <div>
       <div className="background" />
@@ -53,20 +68,17 @@ export default function MissD() {
         >
           
             
-            {/* <video width="1200px" height="600px"  controls>
-  <source type="video/mp4" src={col.vidourl} /> */}
+     
   {console.log(col.vidourl)}
 <video  src={col.vidourl}  type="video/mp4"  width="auto" height="auto" controls  >
-{/* <source  src={col.vidourl}  type="video/mp4" ></source> */}
 
 </video>
-  {/* <source type="video/mp4" src="https://secure.massmotionmedia.com/diorparfums/projects/diorparfums_film_savoir_faire_jasmin_en/videos/20200219174729_960x540_1300_45f543de-525c-468f-8480-a81b69f0da90.mp4"></source> */}
-{/* </video> */}
+
         </ParallaxLayer>
 
         <ParallaxLayer
           sticky={{ start: 2, end: 15 }}
-          style={{ ...alignCenter, justifyContent: "flex-start" }}
+          style={{ ...alignCenter, justifyContent: "flex-start",width: "400px" }}
         >
           <div>
             <img
@@ -89,7 +101,7 @@ export default function MissD() {
                   <div className="jad">
                     <h4 className="jname">{item.name}</h4>
                     <p className="jpric">RS {item.price}</p>
-                    <button className="jbutton" type="submit">
+                    <button className="jbutton"  onClick={() => createAdd(item)} type="submit">
                       pay me
                     </button>
                   </div>
