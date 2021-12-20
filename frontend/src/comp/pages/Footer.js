@@ -10,10 +10,16 @@ export default function Footer() {
          <p><b>OUR BOUTIQUES</b></p>
          <p>Christian Dior Couture Boutiques</p>
          <p>Parfums Christian Dior Boutiques</p>
+         <p>Parfums Christian Dior Boutiques</p>
+         <p>Parfums Christian Dior Boutiques</p>
+         <p>Parfums Christian Dior Boutiques</p>
          </div>
          <div>
          <p><b> THE HOUSE OF DIOR</b></p>
          <p>General Sales Conditions</p>
+         <p>Christian Dior Couture</p>
+         <p>Christian Dior Couture</p>
+         <p>Christian Dior Couture</p>
          <p>Christian Dior Couture</p>
          <p>Christian Dior Couture</p>
          <p>Christian Dior Couture</p>

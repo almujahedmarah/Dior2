@@ -102,7 +102,7 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          <div>
+          <div className="ooooooooooo">
             <h3 className="hp1ee">INTRIGUING GRASSE TUBEROSE</h3>
           <div className="homepvid">
             <p className="hhhhhpppppp">The house of Dior supports the reintroduction of the Tuberose in the Grasse region, where it hadn’t been found since the 1950s. For over a decade, the House has endeavored to develop partnerships all over the world in order to provide Dior fragrances with the finest raw materials. Establishing sustainable relationships with these exceptional industries therefore, it ensures the legacy of a unique, age-old expertise, such as the enfleurage technique.</p>
@@ -119,10 +119,10 @@ export default function Home() {
 
             {call.map((item)=>{
               return(
-                <div>
-                  <h2>{item.name}</h2>
-               < Link  className="link"  to={`/collection/${item._id}`}>{item.name}
-                <img   className="Ah" src={item.img} />
+                <div className="homecardhhhh">
+                  <h2 className="hp1ee">{item.name}</h2>
+               < Link  className="link"  to={`/collection/${item._id}`}>
+                <img   className="homecardhimggggg" src={item.img} />
                 </Link>
                 </div>
               )

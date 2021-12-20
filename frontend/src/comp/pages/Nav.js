@@ -37,7 +37,7 @@ export default function Nav() {
     return (
         <div className="nav">
             <ul>
-                < Link className="link"  to="/"><h2>Dior</h2></Link>
+                < Link className="link"  to="/"><h2>DIOR</h2></Link>
                 
                 {Coll.map((item)=>{
                     return(

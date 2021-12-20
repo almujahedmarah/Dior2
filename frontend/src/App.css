@@ -70,13 +70,13 @@ margin-top: 50px;
   width: 120px;
 }
 .nav{
-  background-color: rgb(27, 11, 1);
+  background-color: rgb(37, 0, 0);
   height: 60px;  
 }
 ul{
   margin-left: 80px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr  1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
 }
 .link{
@@ -174,37 +174,6 @@ ul{
   padding-top: 160px;
   padding-right: 90px;
 }
-.adminp1{
-/* margin-left: 80px; */
-}
-.adph{
-/* padding-bottom: 80px;
-width: 680px;
-align-items: center;
-text-align: center; */
-}
-.adp{
-padding-top: 90px;
-width: 680px;
-align-items: center;
-text-align: center;
-}
-.adminhome{
-display: flex; 
- padding-left: 80px;
-}
-.Ah{
-  height: 250px;
-  width: 190px;
-}
-.Aht{
-text-align: center;
-color:#865554 ;
-/* margin-bottom: 20px; */
-align-items: center;
-text-align: center;
-padding-right:100px ;
-}
 .missdtitl{
   color: rgba(8, 6, 6, 0.877);
   font-size: 50px;
@@ -290,33 +259,23 @@ padding-right:100px ;
   color:rgba(46, 1, 1, 0.726);
 }
 .homett{
-  font-size: 100px;
+  font-size: 140px;
   color:rgba(255, 255, 255, 0.726);
 }
 .gggg{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 80px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   align-content: center;
-
+  border-bottom:rgba(0, 0, 0, 0.171) solid ;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 .cartimg{
   width: 90px;
   height: 90px;
 }
-.Cbutton{
-  background-color: rgba(37, 13, 13, 0.842);
-  width: 20px;
-  height: 20px;
-  border-radius: 30px;
-  color: rgba(245, 241, 241, 0.884);
-  font-size: 16px;
-  border:none;
-  margin-top: 30px;
-  margin-left: 60px;
-  padding-bottom: 20px;
-}
+
 .homep1{
   display: flex;
   gap: 160px;
@@ -355,11 +314,16 @@ padding-right:100px ;
 }
 .homecard{
   display: flex;
-  gap: 70px;
+  gap: 180px;
   margin-top: 10%;
-  margin-left: 13%;
+  margin-left: 25%;
 }
-
+.homecardname{
+  color:rgba(46, 1, 1, 0.726);
+  align-items: center;
+  text-align: center;
+padding-bottom: 20px;
+}
 .CART{
   font-size: 40px;
   color:rgba(46, 1, 1, 0.726);
@@ -370,5 +334,53 @@ padding-right:100px ;
   font-size: 80px;
 color: rgba(219, 218, 218, 0.76);
 }
-
-
+.thetotale{
+  margin-top: 120px;
+  text-align: center;
+  align-items: center;
+  font-size: xx-large;
+  color: rgba(0, 0, 0, 0.692);
+}
+.adminp1{
+  /* height: 1600px; */
+}
+.adminhome{
+  display: flex;
+  margin-left:240px;
+  gap: 100px;
+}
+.adminHomecardimg{
+  height: 300px;
+  width: 250px;
+}
+.adminHomecardt{
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.671);
+  text-align: center;
+  align-items: center;
+}
+.adminHomeheder{
+  margin-bottom: 80px;
+  margin-top: 60px;
+  color: rgba(0, 0, 0, 0.671);
+  text-align: center;
+  align-items: center;
+  width: 1000px;
+}
+.underimg{
+  /* height: 300px; */
+  /* padding-left: 160px; */
+  width: 1060px;
+}
+.ooooooooooo{
+  padding-top: 400px;
+}
+.homecardhhhh{
+  align-items: center;
+  text-align: center;
+  padding-bottom: 80px;
+}
+.homecardhimggggg{
+  height: 280px;
+  width: 230px;
+}
