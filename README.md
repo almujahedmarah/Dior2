@@ -18,6 +18,10 @@ https://trello.com/b/0Czc9ake/dior
 - **Login:** As a user I can login to the platform so that I can log my exit points
 - **Logout:** As a user I can logout from the platform so no one else can use it
 - **Cart:** As a user I can have a cart to pay my order
+- **Cart:** As a user I can delet from caccrt
+- **Cart:** As a user I can add to cart
+- **Cart:** As a user I can viwe my cart 
+- **order:** As a user I can viwe my order
 
 ## Backlog
 
@@ -40,8 +44,7 @@ User profile:
 | `/addprodact` | addprodactPage | admin only `<PrivateRoute>` | to add prodact                                               |
 | `/AHome`      | admin homePage | admin only `<PrivateRoute>` | home page for the admin                                      |
 | `/Jadore`     | jador          | user only `<PrivateRoute>`  | to see jadore collaction                                     |
-| `/MissD`      | miss dior      | user only `<PrivateRoute>`  | to see miss dior collaction                                  |
-| `/Joy`        | joy            | user only `<PrivateRoute>`  | to see joy collaction                                        |
+| `/MissD`      | miss dior      | user only `<PrivateRoute>`  | to see miss dior collaction                                  | |
 | `*`           | error          | user only `<PrivateRoute>`  | send the user to error page                                  |
 | `/Cart`       | cart           | user only `<PrivateRoute>`  | to see the pall                                              |
 |               |                |                             |                                                              |
@@ -56,10 +59,10 @@ User profile:
 - Signup Page
 - Jadore Page
 -  MissD Page
-- Joy Page
 - Cart Page
 - Navbar
 - home
+- order
 - add prodact page
 - edit prodact page
 
@@ -76,8 +79,7 @@ User profile:
   - Admin.detail(id)
   - Admin.add(id)
   - Admin.delete(id)
-- User Service
-  - user.detail(id)
+
 
 
 ## Models
