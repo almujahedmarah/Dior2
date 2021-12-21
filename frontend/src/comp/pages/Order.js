@@ -6,7 +6,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Footer from '../pages/Footer'
 
 export default function Order() {
-  const [create, setCreate] = useState();
+  const [create, setCreate] = useState([]);
   const [loding, setLoding] = useState(false);
 
   const id = localStorage.getItem("id");
@@ -52,7 +52,7 @@ export default function Order() {
           speed={0.1}
           style={{ backgroundColor: "#FAE5E2" }}
         />
-        <ParallaxLayer
+          <ParallaxLayer
           offset={1}
           speed={0.5}
           // style={{
@@ -61,7 +61,7 @@ export default function Order() {
           //   alignItems: "center",
           // }}
         >
-          {id === undefined   ? <h3 className="thetotale">there is no Order</h3> :
+          {id === undefined  || create.length === 0 ? <h3 className="thetotale">there is no Order</h3> :
                <div>
                  {loding? 
                  <>
