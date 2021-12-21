@@ -11,11 +11,14 @@ export default function Order() {
 
   const id = localStorage.getItem("id");
   useEffect( ()=>{
+    if(id !== undefined){
     axios.post("http://localhost:3001/orders/get", {userId:id})
     .then((res)=>{
       console.log(res.data);
       setCreate(res.data)
+      setLoding(true)
     })
+  }
   },[])
 
     return (
@@ -58,28 +61,39 @@ export default function Order() {
           //   alignItems: "center",
           // }}
         >
-          {id === undefined || create === undefined  ? <h3 className="thetotale">there is no Order</h3> :
+          {id === undefined   ? <h3 className="thetotale">there is no Order</h3> :
                <div>
                  {loding? 
                  <>
-                    {create.carts.products.map((item,i) =>{
+                    {create.map((item,i) =>{
                 return(
                   <div  className="gggg">
-                    <img className="cartimg" src={item.image} />
-                    <h4>{item.name}</h4>
-                    <p>RS{item.price}</p>
-                    <p>{create.product[i].quantity}</p>
+                    <h1>{i+1}</h1>
+                     <h4>{item.carts.cart.total}</h4>
+                     {item.carts.products.map((pro)=>{
+                       return(
+                         <div>
+                         <img className="cartimg" src={pro.image} />
+                    <h4>{pro.name}</h4>
+                    <p>RS{pro.price}</p>
+                           </div>
+                       )
+                     
+                     })}
+                    
+                    {/* <p>{create[0].carts.cart.quantity}</p> */}
                   </div>
                 )
               })}
-                <div className="thetotale">
-              {/* <h4>total: {create.total}</h4> */}
-              </div>  
+                {/* <div className="thetotale">
+              <h4>total: {create.total}</h4>
+              </div>   */}
                  </>
-                 :
+                 : 
                  <>
-                 <h1  className="thetotale">Loading...</h1></>
-                }
+                 <h1  className="thetotale">Loading...</h1>
+                 </>
+                 } 
            
             </div> 
 }    
