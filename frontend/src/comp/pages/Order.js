@@ -32,7 +32,7 @@ export default function Order() {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#ffefe8",
-            backgroundImage: `url("https://i.ibb.co/Z6N2Mw5/Untitled-cart.png")`,
+            backgroundImage: `url("https://i.ibb.co/RB4skTC/Untitled-order.png")`,
             backgroundSize: "cover",
             // height: "600px",
           }}

@@ -134,24 +134,40 @@ admin model
  ```
  cart model
  ```
-    product:[{
-        type: Schema.Types.ObjectId,
-        ref:'perfume'
-    }],
-    qty:{
-        type:Number,
-        default:1,
-    },
+     product: [
+        {
+          items: { type: Schema.Types.ObjectId, ref: "perfume" },
+          subtotal: Number,
+          quantity: Number,
+        },
+      ],
+    
+      total: {
+        type: Number,
+      },
   });
+
  ```
  collection model
  ```
-  name: {
+module.exports =  new mongoose.Schema({
+    name: {
       type: String,
       required: [true, 'Author name should be provided']
     },
     Parfume: [ParfumeSchema],
-    
+    img: {
+      type:String
+    },
+    hederImg:{
+      type:String
+    },
+    vidourl:{
+      type:String
+    },
+    stickyimg:{
+      type:String
+    }
   });
  ```
 Parfume model
@@ -172,3 +188,34 @@ Parfume model
     },
   });
  ```
+
+ Order model
+```
+module.exports = new mongoose.Schema({
+
+
+        carts: { },
+      
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: "user",
+          },
+  });
+```
+
+## Backend routes
+
+| HTTP Method | URL                                                          | Request Body                            | Success status | Error Status         | Description                                                  |
+| ----------- | ------------------------------------------------------------ | --------------------------------------- | -------------- | -------------------- | ------------------------------------------------------------ |
+| GET         | `/auth/me`                                                   |                                         | 200            | 404                  | Check if user is logged in and return profile page           |
+| POST        | `http://localhost:3001/user/signup`                          | {name, email, password}                 | 201            | 404                  | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `http://localhost:3001/user/login`                           | {username, password}                    | 200            | 401                  | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST        | `/user/logout`                                               | (empty)                                 | 204            | 400                  | Logs out the user                                            |
+| get         | `http://localhost:3001/Admin/collection`                     | {name, img}                             |                |                      | to choos which collection                                    |
+| get         | `http://localhost:3001/Dior/collection/${colId}`             | {name, img, vido, hederimg , stkiy img} |                |                      | to see the collection he choos                               |
+| post        | `http://localhost:3001/user/cart/${uid}/${colId}/${item._id}` | {userId,collectionId,ParfumeId}         |                |                      | to add to cart by id                                         |
+| get         | `http://localhost:3001/user/cart/${id}`                      | {name , img,subtotal,quantity, total}   |                |                      | too see the cart by hes id                                   |
+| delet       | `http://localhost:3001/user/delet/${id}/${_id}`              | {item_id}                               |                |                      | to delet from the cart by id                                 |
+| post        | {userid, cartid }                                            |                                         |                | to chekout the order |                                                              |
+
+
