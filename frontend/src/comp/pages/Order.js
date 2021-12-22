@@ -40,7 +40,7 @@ export default function Order() {
             // height: "600px",
           }}
         >
-          <div className="CART">
+          <div className="CARTorder">
           <h1 >DIOR</h1>
           <p >your Order</p>
           </div>
