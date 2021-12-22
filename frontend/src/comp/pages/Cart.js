@@ -4,8 +4,24 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Footer from "../pages/Footer";
 import {useNavigate} from 'react-router-dom'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function Cart() {
+  const MySwal = withReactContent(Swal);
+  const Toast = MySwal.mixin({
+    toast: true,
+    position: "top-start",
+    showConfirmButton: false,
+    timer: 1300,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", MySwal.stopTimer);
+      toast.addEventListener("mouseleave", MySwal.resumeTimer);
+    },
+  });
+
+
   const [create, setCreate] = useState();
   const [loding, setLoding] = useState(false);
   //  const [cart , setCart] = useState(true)
@@ -56,6 +72,10 @@ export default function Cart() {
     .then((res)=>{
       console.log(res);
 
+      Toast.fire({
+        icon:"success",
+        title: "Added to Order Successfully",
+    });
       navigate("/Order")
     })
 

@@ -3,8 +3,24 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function MissD() {
+  const MySwal = withReactContent(Swal);
+  const Toast = MySwal.mixin({
+    toast: true,
+    position: "top-start",
+    showConfirmButton: false,
+    timer: 1300,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", MySwal.stopTimer);
+      toast.addEventListener("mouseleave", MySwal.resumeTimer);
+    },
+  });
+
+  //==============================================================================================================================
   const [miss, setMiss] = useState([]);
   const [col, setCol] = useState([]);
   const { colId } = useParams();
@@ -32,6 +48,11 @@ export default function MissD() {
         console.log(res.data);
         setCart(res.data);
       });
+         
+        Toast.fire({
+        icon:"success",
+        title: "Added to Crat Successfully",
+    });
   };
   //============================================================================================================
   return (
@@ -65,32 +86,34 @@ export default function MissD() {
           <div className="vfrvfr">
             <div className="apovthevid">
               <h5>Parfum</h5>
-          <p>
-            An iconic fragrance, J’adore Eau de Parfum is the grand feminine
-            floral by the House of Dior. Finely crafted down to the last detail,
-            like a custom-made flower, J'adore is a bouquet of the most
-            beautiful flowers from around the world. Essence of Ylang-Ylang with
-            its floral and fruity notes and essence of Damascus Rose from Turkey
-            blend with a rare duo of Jasmine Grandiflorum from Grasse and Indian
-            Jasmine Sambac, with fruity and voluptuous sensuality.  An iconic fragrance, J’adore Eau de Parfum is the grand feminine
-            floral by the House of Dior. Finely crafted down to the last detail,
-            like a custom-made flower, J'adore is a bouquet of the most
-            beautiful flowers from around the world. Essence of Ylang-Ylang with
-            its floral and fruity notes and essence of Damascus Rose from Turkey
-            blend with a rare duo of Jasmine Grandiflorum from Grasse and Indian
-            Jasmine Sambac, with fruity and voluptuous sensuality.
-          </p>
-          </div>
-          <div>
-          {console.log(col.vidourl)}
-          <video
-            src={col.vidourl}
-            type="video/mp4"
-            width="auto"
-            height="auto"
-            controls
-          ></video>
-          </div>
+              <p>
+                An iconic fragrance, J’adore Eau de Parfum is the grand feminine
+                floral by the House of Dior. Finely crafted down to the last
+                detail, like a custom-made flower, J'adore is a bouquet of the
+                most beautiful flowers from around the world. Essence of
+                Ylang-Ylang with its floral and fruity notes and essence of
+                Damascus Rose from Turkey blend with a rare duo of Jasmine
+                Grandiflorum from Grasse and Indian Jasmine Sambac, with fruity
+                and voluptuous sensuality. An iconic fragrance, J’adore Eau de
+                Parfum is the grand feminine floral by the House of Dior. Finely
+                crafted down to the last detail, like a custom-made flower,
+                J'adore is a bouquet of the most beautiful flowers from around
+                the world. Essence of Ylang-Ylang with its floral and fruity
+                notes and essence of Damascus Rose from Turkey blend with a rare
+                duo of Jasmine Grandiflorum from Grasse and Indian Jasmine
+                Sambac, with fruity and voluptuous sensuality.
+              </p>
+            </div>
+            <div>
+              {console.log(col.vidourl)}
+              <video
+                src={col.vidourl}
+                type="video/mp4"
+                width="auto"
+                height="auto"
+                controls
+              ></video>
+            </div>
           </div>
         </ParallaxLayer>
 

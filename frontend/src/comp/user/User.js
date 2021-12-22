@@ -26,7 +26,7 @@ export default function User() {
 
         setUserg(response.data)
           navigate("/")
-          alert("Hello!! welcom");
+          
         })
     }
 //===========SINGUP==============================================================================================
@@ -40,7 +40,7 @@ export default function User() {
             setUser([...user,res.data])
         })
               navigate("/")
-              alert("Hello!! welcom");
+            
     }
 
 // =============================================================================================================
