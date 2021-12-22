@@ -8,8 +8,14 @@
 
 ## Description
 
-###Wireframe:
-Trello:
+
+
+
+
+
+###Wireframe: https://miro.com/welcomeonboard/aURhNklSOXVkUEFMU1BjaUduVUIwVlBSaHhlMldIeWk2YjVlbUpIRmh2NlZ1c0Z2QTN3ekRDWlpHVWJuRDdUdnwzNDU4NzY0NTE1NjE2OTQ5MDQ5?invite_link_id=791896065981
+
+###Trello:
 https://trello.com/b/0Czc9ake/dior
 
 ## User Stories
@@ -53,13 +59,12 @@ User profile:
 
 ## Components
 
-- Login Page
-- user Page
-- admin Page
-- Signup Page
-- Jadore Page
--  MissD Page
-- Cart Page
+- Login 
+- user 
+- admin 
+- Signup 
+-  prodact
+- Cart 
 - Navbar
 - home
 - order
@@ -74,7 +79,7 @@ User profile:
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Admin Service
+  - Admin Service
   - Admin.list()
   - Admin.detail(id)
   - Admin.add(id)
