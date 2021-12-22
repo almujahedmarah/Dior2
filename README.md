@@ -8,6 +8,7 @@
 
 ## Description
 
+This project is an e-commerce platform for the well established perfume brand Dior. It's held to the standards of design established by the identity of the brand and caters a predominantly female market.
 
 
 
