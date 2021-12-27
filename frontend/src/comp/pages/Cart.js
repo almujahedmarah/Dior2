@@ -6,6 +6,8 @@ import {useNavigate} from 'react-router-dom'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import StripeCheckout from 'react-stripe-checkout'
+
 
 export default function Cart() {
   const MySwal = withReactContent(Swal);
@@ -67,9 +69,16 @@ export default function Cart() {
       updatePage();
     })
   }
-  const Checkout=()=>{
+  const Checkout=(token)=>{
     axios.post("http://localhost:3001/orders",{ userId:id, cart:create})
-    .then((res)=>{
+    .then(async(res)=>{
+      try {
+        const res = await axios.post("http://localhost:3001/payment", {
+          tokenId: token.id,
+          amount: create.cart.total * 3.75 * 100,
+        });
+      } catch (error) {}
+
       console.log(res);
 
       Toast.fire({
@@ -138,7 +147,16 @@ export default function Cart() {
               })}
                 <div className="thetotale">
               <h4>total: {create.cart.total}</h4>
-              <button className="jbutton"  onClick={()=>Checkout()}>Checkout</button>
+              {/* onClick={()=>Checkout()} */}
+              <StripeCheckout
+              stripeKey="pk_test_51KBGTFJzJ01wRyOileByHNloLZlNXMGNZsBa3ayaYQARGYPdYD28XR6LowErqlbd1KuWqvib7R6uwjKRmnrBPLD000ctglULAA"
+              token={Checkout}
+              billingAddress
+              shippingAddress
+              amount={Math.floor((create.cart.total * 1.15) / 3.75) * 100}
+              >
+              <button className="jbutton" >Checkout</button>
+              </StripeCheckout>
               </div>  
                  </>
                  :

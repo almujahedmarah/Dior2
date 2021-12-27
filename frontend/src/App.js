@@ -13,6 +13,7 @@ import Editprodact from "./comp/Admin/CRUD/Editprodact";
 import Home from "./comp/pages/Home";
 import Error from "./comp/pages/Error";
 import Order from "./comp/pages/Order"
+import Details from "./comp/pages/Details";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/Editprodact/:colId/:id" element={<Editprodact />}></Route>
         <Route path="*" element={<Error />}></Route>
         <Route path="/Order" element={<Order />}></Route>
+        <Route path="/Details/:id" element={<Details />}></Route>
       </Routes>
     </div>
   );

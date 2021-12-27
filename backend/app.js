@@ -7,10 +7,17 @@ const user =require('./router/user')
 const Dior = require('./router/show')
 const orders= require('./router/order')
 
+const stripe = require("stripe")(
+  "sk_test_51KBGTFJzJ01wRyOiK3HVzmefPIFWA4RuUJ1p5a8wiRgrC0tXtDUvCswcZpmyPfJqh0GKzuMWdj8u7j128BvNfJJI00FhIcnBtP"
+);
+
+
 main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect('mongodb+srv://admin:1234@cluster0.uktit.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 }
+
+
 
 // =================   USER NEED ===============================================================
 
@@ -59,6 +66,24 @@ app.use("/Admin", Admin)
 app.use('/user', user)
 app.use('/Dior', Dior)
 app.use('/orders',orders)
+
+
+app.post("/payment", (req, res) => {
+  stripe.charges.create(
+    {
+      source: req.body.tokenId,
+      amount: req.body.amount,
+      currency: "usd",
+    },
+    (stripeErr, stripeRes) => {
+      if (stripeErr) {
+        res.status(500).json(stripeErr);
+      } else {
+        res.status(200).json(stripeRes);
+      }
+    }
+  );
+});
 
 app.listen(3001, () =>{
     console.log("hi  i worked b");

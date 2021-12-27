@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Link } from "react-router-dom";
 
 export default function MissD() {
   const MySwal = withReactContent(Swal);
@@ -139,7 +140,9 @@ export default function MissD() {
             {miss.map((item) => {
               return (
                 <div className="jadorc">
+                  <Link to={`/Details/${item._id}`}>
                   <img className="jadimg" src={item.image} />
+                  </Link>
                   <div className="jad">
                     <h4 className="jname">{item.name}</h4>
                     <p className="jpric">RS {item.price}</p>
