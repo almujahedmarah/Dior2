@@ -130,6 +130,12 @@ export default function Cart() {
           //   alignItems: "center",
           // }}
         >
+          <div className="cartgrid">
+            <h4>delet</h4>
+            <h4 className="cartproducttitle">product</h4>
+            <h4>price</h4>
+            <h4>quantity</h4>
+          </div>
           {id === undefined || create === undefined  ? <h3 className="thetotale">Cart is empty</h3> :
                <div>
                  {loding? 

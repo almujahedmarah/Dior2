@@ -140,7 +140,7 @@ export default function MissD() {
             {miss.map((item) => {
               return (
                 <div className="jadorc">
-                  <Link to={`/Details/${item._id}`}>
+                  <Link to={`/Details/${colId}/${item._id}`}>
                   <img className="jadimg" src={item.image} />
                   </Link>
                   <div className="jad">

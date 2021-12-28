@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/Editprodact/:colId/:id" element={<Editprodact />}></Route>
         <Route path="*" element={<Error />}></Route>
         <Route path="/Order" element={<Order />}></Route>
-        <Route path="/Details/:id" element={<Details />}></Route>
+        <Route path="/Details/:colId/:id" element={<Details />}></Route>
       </Routes>
     </div>
   );
