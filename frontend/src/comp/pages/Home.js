@@ -8,7 +8,7 @@ export default function Home() {
   const [call, setCall] = useState()
   const [loading, setLoading] = useState(false)
   useEffect(() => {
-    axios.get("http://localhost:3001/Admin/collection").then((res) => {
+    axios.get("/Admin/collection").then((res) => {
       console.log(res.data);
       setCall(res.data);
       setLoading(true)
