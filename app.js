@@ -58,10 +58,10 @@ app.use(cors({origin: 'http://localhost:3000'}))
 app.use(express.json());
 
 
-app.get('/', (req,res)=>{
-    res.json({message: "hi marah"})
-    // res.send("hi i work in postman too")
-})
+// app.get('/', (req,res)=>{
+//     res.json({message: "hi marah"})
+//     // res.send("hi i work in postman too")
+// })
 
 app.use("/Admin", Admin)
 app.use('/user', user)
