@@ -10,7 +10,7 @@ import Jadore from "./Jadore"
 import MissD from "./MissD"
 import Cart from './Cart'
 import User from '../user/User'
-import Login from '../Admin/Login'
+import Login from '../admin/Login'
 import axios from "axios";
 
 // import './App.css'
