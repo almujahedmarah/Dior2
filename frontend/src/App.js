@@ -5,7 +5,7 @@ import Jadore from "./comp/pages/Jadore";
 import MissD from "./comp/pages/MissD";
 import Cart from "./comp/pages/Cart";
 import User from "./comp/user/User";
-import Login from "./comp/Admin/Login";
+import Login from "./comp/Admin/LogIn";
 import AHome from "./comp/Admin/AHome";
 import Prodact from "./comp/Admin/CRUD/Prodact";
 import Addprodact from "./comp/Admin/CRUD/Addprodact";

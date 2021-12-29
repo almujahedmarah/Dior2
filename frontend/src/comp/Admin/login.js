@@ -5,7 +5,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Footer from '../pages/Footer'
 
 
-export default function Login() {
+export default function LogIn() {
     const navigate= useNavigate()
     const [userg ,setUserg] = useState('')
     const [emailg ,setEmailg] = useState([])
