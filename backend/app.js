@@ -6,6 +6,7 @@ const Admin = require('./router/Admin')
 const user =require('./router/user')
 const Dior = require('./router/show')
 const orders= require('./router/order')
+const path = require("path");
 
 const stripe = require("stripe")(
   "sk_test_51KBGTFJzJ01wRyOiK3HVzmefPIFWA4RuUJ1p5a8wiRgrC0tXtDUvCswcZpmyPfJqh0GKzuMWdj8u7j128BvNfJJI00FhIcnBtP"
@@ -85,7 +86,19 @@ app.post("/payment", (req, res) => {
   );
 });
 
-app.listen(3001, () =>{
-    console.log("hi  i worked b");
-})
+
+app.use('/', express.static(path.join(__dirname, '/client/build')));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend/build/index.html"));
+});
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT);
+
+
+
+// app.listen(3001, () =>{
+//     console.log("hi  i worked b");
+// })
 
