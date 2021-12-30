@@ -49,10 +49,10 @@ export default function MissD() {
         console.log(res.data);
         setCart(res.data);
       });
-         
-        Toast.fire({
-        icon:"success",
-        title: "Added to Crat Successfully",
+
+    Toast.fire({
+      icon: "success",
+      title: "Added to Crat Successfully",
     });
   };
   //============================================================================================================
@@ -141,7 +141,7 @@ export default function MissD() {
               return (
                 <div className="jadorc">
                   <Link to={`/Details/${colId}/${item._id}`}>
-                  <img className="jadimg" src={item.image} />
+                    <img className="jadimg" src={item.image} />
                   </Link>
                   <div className="jad">
                     <h4 className="jname">{item.name}</h4>
