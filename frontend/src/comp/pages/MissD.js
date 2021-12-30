@@ -151,7 +151,7 @@ export default function MissD() {
                       onClick={() => createAdd(item)}
                       type="submit"
                     >
-                      pay me
+                      Add to Cart
                     </button>
                   </div>
                 </div>
