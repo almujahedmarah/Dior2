@@ -18,7 +18,7 @@ export default function User() {
 
       const handlesubg = (e) =>{
         e.preventDefault()
-        axios.post(" http://localhost:3001/user/login", {email:emailg, password:passg})
+        axios.post("/user/login", {email:emailg, password:passg})
         .then( (response) => {
           console.log(response.data);
           localStorage.setItem("token", response.data.token)
@@ -34,7 +34,7 @@ export default function User() {
   
 
     const handlesub =()=>{
-        axios.post(" http://localhost:3001/user/signup", {email:email, password:pass, name:name})
+        axios.post("/user/signup", {email:email, password:pass, name:name})
         .then( (res) =>{
             console.log(res.data);
             setUser([...user,res.data])

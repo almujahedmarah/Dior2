@@ -29,7 +29,7 @@ export default function AMissD() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/Admin/collection/${colId}`).then((res) => {
+    axios.get(`/Admin/collection/${colId}`).then((res) => {
       console.log(res.data.Parfume);
       setMiss(res.data.Parfume);
       //  setLoading(true)
@@ -42,7 +42,7 @@ export default function AMissD() {
 
   const updatePage = () => {
     axios
-      .get(`http://localhost:3001/Admin/collection/${colId}`)
+      .get(`/Admin/collection/${colId}`)
       .then((res) => {
         console.log(res.data.Parfume);
         setMiss(res.data.Parfume);
@@ -58,7 +58,7 @@ export default function AMissD() {
 
   const deletitem = (_id) => {
     axios
-      .delete(`http://localhost:3001/Admin/Parfume/${colId}/${_id}`)
+      .delete(`/Admin/Parfume/${colId}/${_id}`)
       .then(async (res) => {
         console.log(res.data.Parfume);
 

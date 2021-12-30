@@ -12,7 +12,7 @@ export default function Order() {
   const id = localStorage.getItem("id");
   useEffect( ()=>{
     if(id !== undefined){
-    axios.post("http://localhost:3001/orders/get", {userId:id})
+    axios.post("/orders/get", {userId:id})
     .then((res)=>{
       console.log(res.data);
       setCreate(res.data)

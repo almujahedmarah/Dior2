@@ -33,7 +33,7 @@ export default function Editprodact() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/Admin/Parfume/${colId}/${id}`)
+      .get(`/Admin/Parfume/${colId}/${id}`)
       .then((res) => {
         console.log(res.data.allProduct.Parfume);
         setMiss(res.data.allProduct.Parfume[0]);
@@ -46,7 +46,7 @@ export default function Editprodact() {
     e.preventDefault();
     console.log("hi");
     axios
-      .patch(`http://localhost:3001/Admin/Parfume/${colId}/${id}`, {
+      .patch(`/Admin/Parfume/${colId}/${id}`, {
         name: name,
         image: img,
         price: price,

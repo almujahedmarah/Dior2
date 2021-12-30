@@ -34,7 +34,7 @@ export default function Addmiss() {
     console.log(e);
 
     axios
-      .post(`http://localhost:3001/Admin/Parfume/${colId}`, {
+      .post(`/Admin/Parfume/${colId}`, {
         name: name,
         image: img,
         price: price,

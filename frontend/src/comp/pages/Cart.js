@@ -33,7 +33,7 @@ export default function Cart() {
 
   useEffect(() => {
     if(id != undefined){
-    axios.get(`http://localhost:3001/user/cart/${id}`).then((res) => {
+    axios.get(`/user/cart/${id}`).then((res) => {
       console.log('res ===>',res);
       if(res.data !== "u dont have a cart"){
         setCreate(res.data);
@@ -51,7 +51,7 @@ export default function Cart() {
 
   const updatePage = () => {
     axios
-      .get(`http://localhost:3001/user/cart/${id}`)
+      .get(`/user/cart/${id}`)
       .then((res) => {
         console.log(res.data);
         setCreate(res.data);
@@ -62,7 +62,7 @@ export default function Cart() {
   };
 
   const deletcart= (_id) =>{
-    axios.delete(`http://localhost:3001/user/delet/${id}/${_id}`)
+    axios.delete(`/user/delet/${id}/${_id}`)
     .then(async (res) => {
       console.log(res.data);
 
@@ -70,10 +70,10 @@ export default function Cart() {
     })
   }
   const Checkout=(token)=>{
-    axios.post("http://localhost:3001/orders",{ userId:id, cart:create})
+    axios.post("/orders",{ userId:id, cart:create})
     .then(async(res)=>{
       try {
-        const res = await axios.post("http://localhost:3001/payment", {
+        const res = await axios.post("/payment", {
           tokenId: token.id,
           amount: create.cart.total * 3.75 * 100,
         });

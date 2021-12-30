@@ -15,7 +15,7 @@ export default function AHome() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:3001/Admin/collection").then((res) => {
+    axios.get("/Admin/collection").then((res) => {
       console.log(res.data);
       setColl(res.data);
     });

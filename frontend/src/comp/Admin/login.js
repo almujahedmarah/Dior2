@@ -13,7 +13,7 @@ export default function LogIn() {
 
     const handlesubg = (e) =>{
       e.preventDefault()
-      axios.post("http://localhost:3001/Admin/login", {email:emailg, password:passg})
+      axios.post("/Admin/login", {email:emailg, password:passg})
       .then( (response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token)

@@ -28,7 +28,7 @@ export default function MissD() {
   const [cart, setCart] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/Dior/collection/${colId}`).then((res) => {
+    axios.get(`/Dior/collection/${colId}`).then((res) => {
       console.log(res.data.Parfume);
       setCol(res.data);
       setMiss(res.data.Parfume);
@@ -42,7 +42,7 @@ export default function MissD() {
   const createAdd = (item) => {
     console.log(item);
     axios
-      .post(`http://localhost:3001/user/cart/${uid}/${colId}/${item._id}`, {
+      .post(`/user/cart/${uid}/${colId}/${item._id}`, {
         quantity: 1,
       })
       .then((res) => {

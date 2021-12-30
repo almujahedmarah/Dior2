@@ -28,7 +28,7 @@ export default function Details() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/Dior/Parfume/${colId}/${id}`)
+      .get(`/Dior/Parfume/${colId}/${id}`)
       .then((res) => {
         console.log(res.data);
         setPro(res.data.Parfume);
@@ -41,7 +41,7 @@ export default function Details() {
     const createAdd = (item) => {
       console.log(item);
       axios
-        .post(`http://localhost:3001/user/cart/${uid}/${colId}/${item._id}`, {
+        .post(`/user/cart/${uid}/${colId}/${item._id}`, {
           quantity: 1,
         })
         .then((res) => {
