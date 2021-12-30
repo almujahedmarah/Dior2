@@ -4,6 +4,16 @@
   
   font-family: 'Playfair Display', serif;
 }
+
+.detelbottomcards{
+  display: flex;
+  padding-top: 140px ;
+  gap: 50px;
+}
+.detelbottomcards  h6{
+  align-items: center;
+  text-align: center;
+}
 .main{
   text-align: center;
   justify-content: center;

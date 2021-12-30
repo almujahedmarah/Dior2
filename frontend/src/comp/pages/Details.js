@@ -25,6 +25,8 @@ export default function Details() {
   const [pro, setPro] = useState([]);
   const { id } = useParams();
   const { colId } = useParams();
+  const [miss, setMiss] = useState([]);
+
 
   useEffect(() => {
     axios
@@ -55,6 +57,16 @@ export default function Details() {
     };
     //============================================================================================================
 
+    useEffect(() => {
+      axios.get(`/Admin/collection/${colId}`).then((res) => {
+        console.log(res.data.Parfume);
+        setMiss(res.data.Parfume);
+        //  setLoading(true)
+      });
+    }, []);
+
+    //============================================================================================================
+    let arr = [];
   return (
     <div>
       <Parallax
@@ -89,9 +101,42 @@ export default function Details() {
                 </div>
               </div>
             ))}
+
+      
           </div>
         </ParallaxLayer>
-
+            
+        <ParallaxLayer
+          className="ii"
+          offset={0.5}
+          speed={1}
+          // style={{ backgroundColor: "#AD867B" }}
+        />
+          <ParallaxLayer
+          offset={0.5}
+          speed={0.5}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+                <div className="detelbottomcards">
+              {miss.map((item)=>{
+                   arr.push(item)
+                   console.log(arr);
+                   if (arr.length<5){
+                    return(
+                      <div >
+                        <img width="200px"  src={item.image} />
+                        <h6>{item.name}</h6>
+                        </div>
+                    )
+                   }
+              })}
+            </div>
+           
+        </ParallaxLayer>
         <ParallaxLayer
           className="ii"
           offset={1}
