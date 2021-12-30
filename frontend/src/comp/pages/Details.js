@@ -46,7 +46,6 @@ export default function Details() {
         })
         .then((res) => {
           console.log(res.data);
-          setCart(res.data);
         });
   
       Toast.fire({

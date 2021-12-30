@@ -1,8 +1,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function AMissD() {
+
+  const MySwal = withReactContent(Swal);
+  const Toast = MySwal.mixin({
+    toast: true,
+    position: "top-start",
+    showConfirmButton: false,
+    timer: 1300,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", MySwal.stopTimer);
+      toast.addEventListener("mouseleave", MySwal.resumeTimer);
+    },
+  });
+
+
   const [miss, setMiss] = useState([]);
   const navigate = useNavigate();
   const { colId } = useParams();
@@ -47,6 +64,11 @@ export default function AMissD() {
 
         updatePage();
       });
+      
+    Toast.fire({
+      icon: "success",
+      title: "delete the Prodact Successfully",
+    });
   };
 
 //=======================================================================================================

@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 
 export default function Editprodact() {
+
+  const MySwal = withReactContent(Swal);
+  const Toast = MySwal.mixin({
+    toast: true,
+    position: "top-start",
+    showConfirmButton: false,
+    timer: 1300,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", MySwal.stopTimer);
+      toast.addEventListener("mouseleave", MySwal.resumeTimer);
+    },
+  });
+  //========================================================================
   const [miss, setMiss] = useState([]);
   const [name, setName] = useState();
   const [img, setImg] = useState();
@@ -41,7 +56,11 @@ export default function Editprodact() {
         console.log(res);
       });
     navigate(`/${colId}`);
-    alert("Updated successfully");
+    
+    Toast.fire({
+      icon: "success",
+      title: "Edit Prodact  Successfully",
+    });
   };
 
   //===============================================================================================

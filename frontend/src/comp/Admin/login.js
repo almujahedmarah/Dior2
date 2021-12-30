@@ -21,7 +21,6 @@ export default function LogIn() {
 
       setUserg(response.data)
         navigate("/AHome")
-        alert("Hello!! welcom");
       })
   }
     return (
