@@ -7,12 +7,16 @@
 
 .detelbottomcards{
   display: flex;
-  padding-top: 140px ;
   gap: 50px;
+  align-items: center;
+  text-align: center;
 }
 .detelbottomcards  h6{
   align-items: center;
   text-align: center;
+}
+.card09bottom{
+  width: 1400px;
 }
 .main{
   text-align: center;
@@ -80,7 +84,7 @@ margin-top: 50px;
   width: 120px;
 }
 .nav{
-  background-color: rgb(37, 0, 0);
+  background-color: rgb(12, 5, 5);
   height: 60px;  
 }
 ul{
@@ -121,7 +125,7 @@ ul{
 
 }
 .jbutton{
-  background-color: rgba(37, 13, 13, 0.877);
+  background-color: rgba(0, 0, 0, 0.877);
   width: 120px;
   height: 30px;
   border-radius: 10px;
@@ -218,6 +222,7 @@ ul{
 }
 .proDetailsprice{
   padding-bottom: 10px;
+  color: rgb(73, 12, 12);
 }
 .proDetailsimg{
   padding-left: 15%;
