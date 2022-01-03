@@ -262,12 +262,11 @@ ul {
 }
 .adminpppppp {
   background-color: #ffefe8;
+  height: 1000px;
 }
 .addpro {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  /* text-align: center; */
-  /* align-items: center; */
   margin-left: 500px;
   padding-top: 80px;
   color: rgb(90, 38, 38);
@@ -516,6 +515,17 @@ ul {
   margin-top: 30px;
   margin-left: 10px;
 }
+.adminpppppp {
+  background-color: #ffefe8;
+  /* height: auto; */
+}
+.adddddd {
+  background-color: #f9d6d4;
+  height: 700px;
+}
+.addpro {
+  margin-left: 400px;
+}
 }
 /* ==== tablets =========================================== */
 
@@ -660,6 +670,21 @@ ul {
 }
 .addpro {
   margin-left: 260px;
+}
+.Admincard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+  grid-gap: 30px;
+  margin-top: 10px;
+  text-align: center;
+  align-items: center;
+  padding: 40px;
+}
+.Aimg {
+  width: 150px;
+  height: 150px;
+  /* margin-left: 200px; */
 }
 }
 
