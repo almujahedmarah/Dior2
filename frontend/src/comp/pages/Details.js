@@ -99,7 +99,7 @@ export default function Details() {
                   </button>
                 </div>
                 <div className="proDetailsimg">
-                  <img src={item.image} />
+                  <img className="deitalsimgpro" src={item.image} />
                 </div>
               </div>
             ))}
@@ -125,6 +125,7 @@ export default function Details() {
                   <div key={i}>
                     {/* <Link to={`/Details/${colId}/${item._id}`}> */}
                      <img
+                     className="cardpromapdetails"
                       width="200px"
                       src={item.image}
                       onClick={() => {setPro([item])}}

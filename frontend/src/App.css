@@ -83,7 +83,7 @@ input {
   width: 120px;
 }
 .nav {
-  background-color: rgba(39, 0, 0, 0.918);
+  background-color: rgba(14, 0, 0, 0.918);
   height: 60px;
 }
 ul {
@@ -502,6 +502,20 @@ ul {
   width: 500px;
   height: auto;
 }
+.ADDbutton {
+  margin-left: 400px;
+}
+.jbutton {
+  background-color: rgb(0, 0, 0);
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  color: rgba(245, 241, 241, 0.884);
+  font-size: 16px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 10px;
+}
 }
 /* ==== tablets =========================================== */
 
@@ -614,7 +628,41 @@ ul {
   margin-top: 20px;
   text-align: center;
 }
+/* --------- Details----------------------------------------------------------------------------- */
+.proDetailsimg {
+  padding-left: 5%;
 }
+.deitalsimgpro{
+  width: 350px;
+}
+.cardpromapdetails{
+  width: 100px;
+}
+.jbutton {
+  width: 90px;
+  height: 30px;
+  font-size: 10px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+/*---- LOGIN $ SINUP---------------------------------------------------------------------------------------------*/
+.sup-main {
+  width: 55%;
+}
+/*----------------ADMIN HOME --------------------------------------------------*/
+.adminHomeheder {
+  width: 700px;
+  padding-left: 17%;
+}
+.ADDbutton {
+  margin-left: 300px;
+}
+.addpro {
+  margin-left: 260px;
+}
+}
+
 
 /* ======== iPhone ================================================ */
 /* 

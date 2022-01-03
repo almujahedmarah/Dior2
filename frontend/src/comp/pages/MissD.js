@@ -124,6 +124,7 @@ export default function MissD() {
           style={{
             ...alignCenter,
             justifyContent: "flex-start",
+            width:"340px"
           }}
         >
           <div>
