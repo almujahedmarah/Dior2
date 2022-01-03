@@ -4,7 +4,7 @@ export default function Footer() {
     return (
      <div className='footer'>
             <hr></hr>
-            <div className='footere'>
+            <div className='footeyre'>
         <div className='logoF'>
          <h1>Dior</h1>
          <p><b>OUR BOUTIQUES</b></p>

@@ -86,7 +86,7 @@ export default function MissD() {
         >
           <div className="vfrvfr">
             <div className="apovthevid">
-              <h5>Parfum</h5>
+              <h3>Parfum</h3>
               <p>
                 An iconic fragrance, J’adore Eau de Parfum is the grand feminine
                 floral by the House of Dior. Finely crafted down to the last
@@ -113,6 +113,7 @@ export default function MissD() {
                 width="auto"
                 height="auto"
                 controls
+                className="vidprodar"
               ></video>
             </div>
           </div>
@@ -123,7 +124,6 @@ export default function MissD() {
           style={{
             ...alignCenter,
             justifyContent: "flex-start",
-            width: "400px",
           }}
         >
           <div>

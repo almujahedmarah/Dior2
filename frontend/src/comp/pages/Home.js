@@ -114,14 +114,14 @@ export default function Home() {
                 therefore, it ensures the legacy of a unique, age-old expertise,
                 such as the enfleurage technique.
               </p>
-              <video width="800px" className="videohh" controls>
+              <video className="videohh" controls>
                 <source
                   src="https://secure.massmotionmedia.com/diorparfums/projects/diorparfums_jadore_infinissime_film_tubereuse_2020/videos/20200810083927_960x540_1300_114cf8a3-0861-48e3-8bf1-5ac96f9d8b3c.mp4"
                   type="video/mp4"
                 />
               </video>
             </div>
-            <div className="homecard">
+            {/* <div className="homecard">
               {loading ? (
                 <>
                   {call.map((item) => {
@@ -138,7 +138,7 @@ export default function Home() {
               ) : (
                 <></>
               )}
-            </div>
+            </div> */}
           </div>
         </ParallaxLayer>
         {/* ============================================================================================================================== */}
